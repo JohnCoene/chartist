@@ -4,7 +4,19 @@
 \alias{chart_ist}
 \title{Initiate a chartist visualisation}
 \usage{
-chart_ist(data, type, width = NULL, height = NULL, elementId = NULL)
+chart_ist(data, type = "line", width = NULL, height = NULL,
+  elementId = NULL)
+}
+\arguments{
+\item{data}{\code{data.frame} containing data to plot.}
+
+\item{type}{type of charts, defaults to \code{line}, may also be \code{bar} or \code{pie}.}
+
+\item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
+\code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+string and have \code{'px'} appended.}
+
+\item{elementId}{Use specific element id.}
 }
 \description{
 Transform data into a chartist visualisation

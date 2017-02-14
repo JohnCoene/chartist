@@ -5,7 +5,8 @@
 \title{Configure options for chartist visualisation}
 \usage{
 opt_ist(p, ..., high, low, fullWidth = TRUE, scaleMinSpace, onlyInteger,
-  referenceValue, stretch, showArea, showLine, axisX, axisY)
+  referenceValue, stretch, showArea, showLine, seriesBarDistance, reverseData,
+  horizontalBars)
 }
 \description{
 Configure options for chartist visualisation
