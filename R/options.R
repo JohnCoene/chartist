@@ -1,7 +1,7 @@
 #' Configure options for chartist visualisation
 #'
 #' @export
-opt_ist <- function(p, ..., fillHoles = TRUE, showPoint = TRUE, showArea = FALSE,
+opt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE, showArea = FALSE,
                     showLine = TRUE, lineSmoothing = "simple", fullWidth = TRUE,
                     fillSmooth = TRUE, donut, donutWidth,startAngle, total,
                     high, low, scaleMinSpace, referenceValue, stretch,
@@ -38,7 +38,15 @@ opt_ist <- function(p, ..., fillHoles = TRUE, showPoint = TRUE, showArea = FALSE
     lineSmoothing
   }
 
-  p$x$options <- append(p$x$options, opts)
+  if(!missing(name)) {
+    specopts <- list()
+    specopts$series <- list(name = opts)
+    names(specopts$series) <- name
+    p$x$options <- append(p$x$options, specopts)
+  } else {
+    p$x$options <- append(p$x$options, opts)
+  }
+
   p
 }
 
@@ -50,8 +58,6 @@ line_ist <- function(p, ..., fullWidth = TRUE, fillHoles = TRUE, showPoint = TRU
 
   opts <- list(...)
 
-  opts$lineSmooth <- if(fillSmooth == TRUE) htmlwidgets::JS('Chartist.Interpolation.cardinal({
-                                                            fillHoles: true,fillSmooth})')
   opts$showArea <- if(!missing(showArea)) showArea
   opts$fullWidth <- if(!missing(fullWidth)) fullWidth
   opts$fillHoles <- if(!missing(fillHoles)) fillHoles

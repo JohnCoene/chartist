@@ -4,7 +4,7 @@
 \alias{add_ist}
 \title{Add Series}
 \usage{
-add_ist(p, value, ...)
+add_ist(p, value, name, ...)
 }
 \arguments{
 \item{p}{a chartist object}
