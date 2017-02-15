@@ -1,17 +1,14 @@
-labels_suffix <- function(suffix){
-  fun <- htmlwidgets::JS('function(value) {return value + "', suffix, '";}')
 
+
+lab_ist <- function(prefix, suffix){
+  fun <- htmlwidgets::JS("function(value) {return '", prefix, "' + value '", suffix, "';}")
   return(fun)
 }
 
-labels_prefix <- function(prefix){
-  fun <- htmlwidgets::JS("function(value) {return '", prefix, "' + value;}")
-
+sumJS <- function() {
+   fun <- htmlwidgets::JS("function(value) {
+    return Math.round(value / data.series.reduce(function(a, b) {
+  	return a + b;}, 0) * 100) + '%';}")
+   
   return(fun)
-}
-
-sumJS <- function(serie) {
-  htmlwidgets::JS("function(value) {
-    return Math.round(value / ", round(sum(unlist(serie))), " * 100) + '%';
-  }")
 }

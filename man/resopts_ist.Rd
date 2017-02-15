@@ -4,7 +4,7 @@
 \alias{resopts_ist}
 \title{Configure responsive options for chartist visualisation}
 \usage{
-resopts_ist(p, ..., showPoint)
+resopts_ist(p, ...)
 }
 \description{
 Configure responsive options for chartist visualisation

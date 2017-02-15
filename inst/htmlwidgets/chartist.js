@@ -15,10 +15,7 @@ HTMLWidgets.widget({
         var d = document.getElementById(el.id);
         d.className += x.ratio;
 
-        var data = {
-          labels: x.labels,
-          series: x.series
-        };
+        var data = x.cdat;
 
         var seq = 0,
           delays = 80,

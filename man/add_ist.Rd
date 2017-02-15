@@ -4,12 +4,12 @@
 \alias{add_ist}
 \title{Add Series}
 \usage{
-add_ist(p, value, name, ...)
+add_ist(p, values, name, ...)
 }
 \arguments{
 \item{p}{a chartist object}
 
-\item{value}{value variable}
+\item{values}{values variable}
 
 \item{...}{Additional parameter to pass to line}
 }

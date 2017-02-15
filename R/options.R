@@ -53,7 +53,7 @@ opt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE, showArea =
 #' Line options
 #'
 #' @export
-line_ist <- function(p, ..., fullWidth = TRUE, fillHoles = TRUE, showPoint = TRUE, showArea = FALSE,
+lineopt_ist <- function(p, ..., fullWidth = TRUE, fillHoles = TRUE, showPoint = TRUE, showArea = FALSE,
                      showLine = TRUE, lineSmoothing = "simple"){
 
   opts <- list(...)
@@ -84,12 +84,13 @@ line_ist <- function(p, ..., fullWidth = TRUE, fillHoles = TRUE, showPoint = TRU
 #' @param percent add percent sign
 #'
 #' @export
-pie_ist <- function(p, ..., percent) {
+pieopt_ist <- function(p, ..., percent) {
 
   opts <- list(...)
 
-  opts$labelInterpolationFnc = if(!missing(percent) && percent == TRUE) {
-    sumJS(p$x$series)
+  if(!missing(percent) && percent == TRUE) {
+    opts$labelInterpolationFnc = sumJS()
+    p$x$cdat$labels <- NULL
   }
 
   p$x$options <- append(p$x$options, opts)
@@ -103,7 +104,7 @@ pie_ist <- function(p, ..., percent) {
 #' @rdname axis_ist
 #' @export
 xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
-                      suffix, prefix, ticks, onlyInteger, offset, scaleMinSpace){
+                      ticks, onlyInteger, offset, scaleMinSpace){
 
   opts <- list(...)
 
@@ -113,8 +114,6 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
   opts$onlyInteger <- if(!missing(onlyInteger)) onlyInteger
   opts$offset <- if(!missing(offset)) offset
   opts$scaleMinSpace <- if(!missing(scaleMinSpace)) scaleMinSpace
-  opts$labelInterpolationFnc <- if(!missing(prefix)) labels_prefix(prefix)
-  opts$labelInterpolationFnc <- if(!missing(suffix)) labels_suffix(suffix)
   opts$ticks <- if(!missing(ticks)) ticks
 
   p$x$options$axisX <- opts
@@ -126,7 +125,7 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
 #' @rdname axis_ist
 #' @export
 yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
-                      suffix, prefix, ticks, onlyInteger, offset, scaleMinSpace){
+                      ticks, onlyInteger, offset, scaleMinSpace){
 
   opts <- list(...)
 
@@ -136,8 +135,6 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
   opts$onlyInteger <- if(!missing(onlyInteger)) onlyInteger
   opts$offset <- if(!missing(offset)) offset
   opts$scaleMinSpace <- if(!missing(scaleMinSpace)) scaleMinSpace
-  opts$labelInterpolationFnc <- if(!missing(prefix)) labels_prefix(prefix)
-  opts$labelInterpolationFnc <- if(!missing(suffix)) labels_suffix(suffix)
   opts$ticks <- if(!missing(ticks)) ticks
 
   p$x$options$axisY <- append(p$x$options$axisY, opts)
@@ -146,13 +143,28 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
 
 }
 
+#' Adjust labels
+#'
+#' @export
+xlabel_ist <- function(p, suffix = "", prefix = "",...) {
+  
+  opts <- list(...)
+  
+  opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
+  
+  p$x$options$axisX <- append(p$x$options$axisX, opts)
+  
+  p
+}
+
 #' Configure responsive options for chartist visualisation
 #'
 #' @export
-resopts_ist <- function(p, ..., showPoint){
+resopts_ist <- function(p, ...){
 
   opts <- list(...)
 
   p$x$responsiveOptions <- opts
+  
   p
 }

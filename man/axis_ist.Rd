@@ -5,11 +5,11 @@
 \alias{yaxis_ist}
 \title{Tweak axis for chartist visualisation}
 \usage{
-xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, position, suffix,
-  prefix, ticks, onlyInteger, offset, scaleMinSpace)
+xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, position, ticks,
+  onlyInteger, offset, scaleMinSpace)
 
-yaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, position, suffix,
-  prefix, ticks, onlyInteger, offset, scaleMinSpace)
+yaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, position, ticks,
+  onlyInteger, offset, scaleMinSpace)
 }
 \description{
 Tweak axis for chartist visualisation

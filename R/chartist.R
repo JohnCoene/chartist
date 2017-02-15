@@ -21,14 +21,18 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
   }
 
   if(missing(data)) stop("must pass data")
-  if(missing(type)) stop("must specify type: line, bar or pie")
   if(!tolower(type) %in% c("bar", "line", "pie")) stop("type takes: line, bar or pie")
+  
+  if(!missing(x)){
+    labs <- unname(unlist(data[,x]))
+  } else {
+    labs <- list()
+  }
 
-  # forward options using x
   x = list(
-    labels = unname(data[,x]),
+    cdat = list(labels = labs,
+                series = list()),
     ratio = "ct-chart",
-    series = list(),
     type = type,
     data = data,
     options = list()
