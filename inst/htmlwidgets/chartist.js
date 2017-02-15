@@ -12,20 +12,35 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
+        var d = document.getElementById(el.id);
+        d.className += x.ratio;
+
         var data = {
           labels: x.labels,
           series: x.series
         };
 
+        var seq = 0,
+          delays = 80,
+          durations = 500;
+
         var options = x.options;
         var responsiveOptions = x.responsiveOptions;
 
         if (x.type == "line")
-          new Chartist.Line('#' + el.id, data, options);
+          var chart = new Chartist.Line('#' + el.id, data, options);
         else if (x.type == "bar")
-          new Chartist.Bar('#' + el.id, data, options);
+          var chart = new Chartist.Bar('#' + el.id, data, options);
         else if (x.type == "pie")
-          new Chartist.Pie('#' + el.id, data, options);
+          var chart = new Chartist.Pie('#' + el.id, data, options);
+
+        if (x.hasOwnProperty('created')){
+          chart.on('created', x.created);
+        }
+
+        if (x.hasOwnProperty('draw')){
+          chart.on('draw', x.draw);
+        }
 
       },
 

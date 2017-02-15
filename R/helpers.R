@@ -1,21 +1,10 @@
-#' bipolar
+#' Theme gauge
 #'
-#' @param x Label Interpolation Function to retrieve, see details for valid values
-#'
-#' @details
-#' \itemize{
-#'   \item{bipolar}
-#'   \item{overlap_bars}
-#' }
-labelInterpolationFnc <- function(x){
+#' @export
+gauge_ist <- function(p, ...){
+  if(p$x$type != "pie") stop("gauge team applies to type: pie only")
 
-  if(x == "bipolar"){
-    fun <- htmlwidgets::JS('function(value, index) {
-        return index % 2 === 0 ? value : null;}')
-    return(fun)
-  } else if (x == "overlap_bars"){
-    fun <- htmlwidgets::JS('function (value) {return value[0];}')
-    return(fun)
-  }
+  p <- opt_ist(p, donut = TRUE, startAngle = 270, total = sum(x$y)*2)
 
+  p
 }

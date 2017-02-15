@@ -4,6 +4,7 @@
 #'
 #' @param data \code{data.frame} containing data to plot.
 #' @param type type of charts, defaults to \code{line}, may also be \code{bar} or \code{pie}.
+#' @param x Must be passed for \code{line} and \code{bar} (\code{type}).
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
@@ -12,8 +13,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-chart_ist <- function(data, type = "line", width = NULL, height = NULL,
+chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
                       elementId = NULL) {
+
+  if(missing(x) && tolower(type) %in% c("line", "bar")) {
+    stop("line or bar charts: must pass x")
+  }
 
   if(missing(data)) stop("must pass data")
   if(missing(type)) stop("must specify type: line, bar or pie")
@@ -21,7 +26,8 @@ chart_ist <- function(data, type = "line", width = NULL, height = NULL,
 
   # forward options using x
   x = list(
-    labels = unname(as.character(data)),
+    labels = unname(data[,x]),
+    ratio = "ct-chart",
     series = list(),
     type = type,
     data = data,

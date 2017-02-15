@@ -4,8 +4,10 @@
 \alias{opt_ist}
 \title{Configure options for chartist visualisation}
 \usage{
-opt_ist(p, ..., high, low, fullWidth = TRUE, scaleMinSpace, onlyInteger,
-  referenceValue, stretch, showArea, showLine, seriesBarDistance, reverseData,
+opt_ist(p, ..., fillHoles = TRUE, showPoint = TRUE, showArea = FALSE,
+  showLine = TRUE, lineSmoothing = "simple", fullWidth = TRUE,
+  fillSmooth = TRUE, donut, donutWidth, startAngle, total, high, low,
+  scaleMinSpace, referenceValue, stretch, seriesBarDistance, reverseData,
   horizontalBars)
 }
 \description{
