@@ -17,6 +17,10 @@ HTMLWidgets.widget({
 
         var data = x.cdat;
 
+        if (x.hasOwnProperty('plugins')){
+          var plugins = x.plugins;
+        }
+
         var seq = 0,
           delays = 80,
           durations = 500;
@@ -26,17 +30,29 @@ HTMLWidgets.widget({
 
         if (x.type == "line")
           var chart = new Chartist.Line('#' + el.id, data, options, resOpts);
+          if (x.hasOwnProperty('plugins')){
+            var chart = new Chartist.Line('#' + el.id, data, plugins, options, resOpts);
+          }
         else if (x.type == "bar")
           var chart = new Chartist.Bar('#' + el.id, data, options, resOpts);
+          if (x.hasOwnProperty('plugins')){
+            var chart = new Chartist.Bar('#' + el.id, data, plugins, options, resOpts);
+          }
         else if (x.type == "pie")
           var chart = new Chartist.Pie('#' + el.id, data, options, resOpts);
+          if (x.hasOwnProperty('plugins')){
+            var chart = new Chartist.Pie('#' + el.id, data, plugins, options, resOpts);
+          }
 
         if (x.hasOwnProperty('created')){
           chart.on('created', x.created);
         }
 
         if (x.hasOwnProperty('draw')){
-          chart.on('draw', x.draw);
+
+          chart.on('draw', function() {
+            element.animate(x.anim);
+          });
         }
 
       },

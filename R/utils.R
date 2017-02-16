@@ -1,6 +1,8 @@
 lab_ist <- function(prefix, suffix){
-  fun <- htmlwidgets::JS("function(value) {
-   return '", prefix, "' + value '", suffix, "';}")
+
+  f <- paste0("function(value) { return '", prefix, "' + value + '", suffix, "';}")
+
+  fun <- htmlwidgets::JS(f)
   return(fun)
 }
 

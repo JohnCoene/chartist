@@ -7,7 +7,7 @@
 add_ist(p, values, name, ...)
 }
 \arguments{
-\item{p}{a chartist object}
+\item{p}{a chartist object.}
 
 \item{values}{values to plot on y axis.}
 

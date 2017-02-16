@@ -2,7 +2,7 @@
 #'
 #' Add series(s) to chart
 #'
-#' @param p a chartist object
+#' @param p a chartist object.
 #' @param values values to plot on y axis.
 #' @param name name the serie, see details (optional).
 #' @param ... Additional parameter to pass to line.

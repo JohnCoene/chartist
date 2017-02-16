@@ -36,4 +36,5 @@ Valid values for \code{ratio}:
   \item{\code{double-octave} or \code{1:4}}
 }
 }
+\keyword{internal}
 

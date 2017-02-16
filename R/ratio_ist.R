@@ -23,8 +23,7 @@
 #'   \item{\code{major-twelfth} or \code{1:3}}
 #'   \item{\code{double-octave} or \code{1:4}}
 #' }
-#'
-#' @export
+#' @keywords internal
 ratio_ist <- function(p, ratio) {
 
   if(missing(ratio)) stop("missing ratio")

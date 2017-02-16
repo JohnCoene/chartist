@@ -56,6 +56,11 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
   )
 }
 
+chartist_html <- function(id, style, class, ...) {
+  htmltools::tags$div(class = paste(class, "ct-chart"),
+           id = id, style=style)
+}
+
 #' Shiny bindings for chartist
 #'
 #' Output and render functions for using chartist within Shiny

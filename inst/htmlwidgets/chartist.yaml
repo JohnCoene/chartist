@@ -2,5 +2,8 @@ dependencies:
  - name: chartist
    version: 0.10.0
    src: htmlwidgets/lib/chartist-0.10.0
-   script: chartist.min.js
+   script:
+     - chartist.min.js
+     - plugins/chartist-plugin-pointlabels.min.js
+     - plugins/chartist-plugin-threshold.min.js
    stylesheet: chartist.min.css
