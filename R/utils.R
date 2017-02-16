@@ -8,8 +8,10 @@ lab_ist <- function(prefix, suffix){
 
 # pie chart sum
 sumJS <- function(serie) {
-   fun <- htmlwidgets::JS("function(value) {
-    return Math.round((value / ", sum(unlist(serie)),") * 100) + '%';}")
+
+  f <- paste0("function(value) {return Math.round((value / ", sum(unlist(serie)),") * 100) + '%';}")
+
+  fun <- htmlwidgets::JS(f)
 
   return(fun)
 }
