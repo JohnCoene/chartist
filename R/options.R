@@ -39,10 +39,9 @@ opt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE, showArea =
   }
 
   if(!missing(name)) {
-    specopts <- list()
-    specopts$series <- list(name = opts)
-    names(specopts$series) <- name
-    p$x$options <- append(p$x$options, specopts)
+    specopts <- list(opts)
+    names(specopts) <- name
+    p$x$options$series <- append(p$x$options$series, specopts)
   } else {
     p$x$options <- append(p$x$options, opts)
   }
@@ -147,13 +146,13 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, position,
 #'
 #' @export
 xlabel_ist <- function(p, suffix = "", prefix = "",...) {
-  
+
   opts <- list(...)
-  
+
   opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
-  
+
   p$x$options$axisX <- append(p$x$options$axisX, opts)
-  
+
   p
 }
 
@@ -165,6 +164,6 @@ resopts_ist <- function(p, ...){
   opts <- list(...)
 
   p$x$responsiveOptions <- opts
-  
+
   p
 }

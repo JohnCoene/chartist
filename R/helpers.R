@@ -6,7 +6,9 @@
 gauge_ist <- function(p, ...){
   if(p$x$type != "pie") stop("gauge team applies to type: pie only")
 
-  p <- opt_ist(p, donut = TRUE, startAngle = 270, total = sum(p$x$data$y)*2)
+  data <- get("data", envir = cdat)
+
+  p <- opt_ist(p, donut = TRUE, startAngle = 270, total = sum(p$x$cdat$series)*2)
 
   p
 }

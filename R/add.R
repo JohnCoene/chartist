@@ -12,8 +12,10 @@ add_ist <- function(p, values, name, ...){
   if(missing(values)) stop("must pass values")
   if(missing(name)) name = paste0(p$x$type, "-", length(p$x$cdat$series) + 1)
 
-  values = p$x$data[,values]
-  
+  data <- get("data", envir = cdat)
+
+  values = data[,values]
+
   if(!tolower(p$x$type) %in% c("pie")){
     p$x$cdat$series <- append(p$x$cdat$series, list(list(name = name, data = values)))
   } else {

@@ -22,9 +22,15 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
 
   if(missing(data)) stop("must pass data")
   if(!tolower(type) %in% c("bar", "line", "pie")) stop("type takes: line, bar or pie")
-  
+
   if(!missing(x)){
-    labs <- unname(unlist(data[,x]))
+
+    if(length(x) == 1) {
+      labs <- unname(unlist(data[,x]))
+    } else {
+      labs <- unname(x)
+    }
+
   } else {
     labs <- list()
   }
@@ -34,9 +40,10 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
                 series = list()),
     ratio = "ct-chart",
     type = type,
-    data = data,
     options = list()
   )
+
+  assign("data", data, envir = cdat)
 
   # create widget
   htmlwidgets::createWidget(

@@ -4,7 +4,7 @@
 \alias{xlabel_ist}
 \title{Adjust labels}
 \usage{
-xlabel_ist(p, suffix, prefix, ...)
+xlabel_ist(p, suffix = "", prefix = "", ...)
 }
 \description{
 Adjust labels
