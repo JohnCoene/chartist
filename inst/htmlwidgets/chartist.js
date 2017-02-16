@@ -22,14 +22,14 @@ HTMLWidgets.widget({
           durations = 500;
 
         var options = x.options;
-        var responsiveOptions = x.responsiveOptions;
+        var resOpts = x.responsiveOptions;
 
         if (x.type == "line")
-          var chart = new Chartist.Line('#' + el.id, data, options);
+          var chart = new Chartist.Line('#' + el.id, data, options, resOpts);
         else if (x.type == "bar")
-          var chart = new Chartist.Bar('#' + el.id, data, options);
+          var chart = new Chartist.Bar('#' + el.id, data, options, resOpts);
         else if (x.type == "pie")
-          var chart = new Chartist.Pie('#' + el.id, data, options);
+          var chart = new Chartist.Pie('#' + el.id, data, options, resOpts);
 
         if (x.hasOwnProperty('created')){
           chart.on('created', x.created);

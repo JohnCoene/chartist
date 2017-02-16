@@ -36,7 +36,7 @@ ratio_ist <- function(p, ratio) {
 
   if(nrow(css_class) == 0) stop("cannot find ratio")
 
-  p$x$ratio <- paste0(" ", css_class$class)
+  p$x$ratio <- paste(p$x$ratio, css_class$class)
 
   p
 }

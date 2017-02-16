@@ -4,10 +4,68 @@
 \alias{lineopt_ist}
 \title{Line options}
 \usage{
-lineopt_ist(p, ..., fullWidth = TRUE, fillHoles = TRUE, showPoint = TRUE,
-  showArea = FALSE, showLine = TRUE, lineSmoothing = "simple")
+lineopt_ist(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
+  showArea = FALSE, showLine = TRUE, areaBase = 0,
+  lineSmoothing = "simple", fullWidth = TRUE, width, height, low, high,
+  chartPadding)
+}
+\arguments{
+\item{p}{a chartist object.}
+
+\item{...}{additional options.}
+
+\item{name}{name the serie, see details (optional).}
+
+\item{fillHoles}{whether to fill missing data, defaults to \code{TRUE}.}
+
+\item{showPoint}{whether to show points, defaults to \code{TRUE}.}
+
+\item{showArea}{turn line chart into area chart, defaults to \code{FALSE}.}
+
+\item{showLine}{set \code{FALSE} to hide line.}
+
+\item{areaBase}{base for the chart, defaults to 0.}
+
+\item{lineSmoothing}{defaults to \code{simple}, can take an \code{integer},
+\code{step}, \code{none} or an htmlwidgets javascript function
+(class \code{JS_EVAL}).}
+
+\item{fullWidth}{When set to true, the last grid line on the x-axis is not
+drawn and the chart elements will expand to the full available width of the
+chart. For the last label to be drawn correctly you might need to add chart
+padding or offset the last label with a draw event handler.}
+
+\item{width}{set fixed width in pixels or percent (i.e.: \code{300px}, \code{70\%}).}
+
+\item{height}{set fixed height in pixels or percent
+(i.e.: \code{300px}, \code{70\%}).}
+
+\item{low}{lower bound of value.}
+
+\item{high}{higher bound of value.}
+
+\item{chartPadding}{padding around chart div.}
 }
 \description{
-Line options
+Pass options to \code{line} type.
+}
+\examples{
+mtcars \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp") \%>\%
+   lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+
+mtcars \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp") \%>\%
+   lineopt_ist(lineSmoothing = "step", showLine = TRUE, showPoint = FALSE)
+
+mtcars \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp", name = "disp") \%>\%
+   add_ist("hp", name = "hp") \%>\%
+   lineopt_ist(name = "disp", lineSmoothing = "none") \%>\%
+   lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
+
 }
 

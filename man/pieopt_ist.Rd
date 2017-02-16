@@ -4,12 +4,72 @@
 \alias{pieopt_ist}
 \title{Pie and donut options}
 \usage{
-pieopt_ist(p, ..., percent)
+pieopt_ist(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE,
+  startAngle, total, donutWidth, labelDirection, labelOffset, width, height,
+  low, high, chartPadding)
 }
 \arguments{
+\item{p}{a chartist object.}
+
+\item{...}{additional options.}
+
 \item{percent}{add percent sign}
+
+\item{donut}{set to \code{TRUE} for donut chart, defaults to \code{FALSE}.}
+
+\item{showLabel}{set to \code{FALSE} to hide labels.}
+
+\item{startAngle}{start angle of the pie chart in degrees.}
+
+\item{total}{By specifying a total value, the sum of the values in the series
+must be this total.}
+
+\item{donutWidth}{donut width.}
+
+\item{labelDirection}{label direction takes \code{neutral}, \code{explode}
+or \code{implode}.}
+
+\item{labelOffset}{numeric to offset labels.}
+
+\item{width}{set fixed width in pixels or percent (i.e.: \code{300px}, \code{70\%}).}
+
+\item{height}{set fixed height in pixels or percent
+(i.e.: \code{300px}, \code{70\%}).}
+
+\item{low}{lower bound of value.}
+
+\item{high}{higher bound of value.}
+
+\item{chartPadding}{padding around chart div.}
 }
 \description{
 Pie and donut options
+}
+\examples{
+mtcars$models <- rownames(mtcars)
+
+mtcars[1:5,] \%>\%
+    chart_ist(type = "pie") \%>\%
+    add_ist("disp") \%>\%
+    pieopt_ist(startAngle = 270,
+        donut = TRUE,
+        donutWidth = 50,
+        showLabel = FALSE)
+
+mtcars[1:5,] \%>\%
+    chart_ist(x = "models", type = "pie") \%>\%
+    add_ist("disp") \%>\%
+    pieopt_ist(labelDirection = "explode",
+        labelOffset = 100,
+        chartPadding = 50)
+
+mtcars[1:5,] \%>\%
+    chart_ist(type = "pie") \%>\%
+    add_ist("disp") \%>\%
+    pieopt_ist(percent = TRUE)
+
+}
+\seealso{
+\code{\link{gauge_ist}}
 }
 
