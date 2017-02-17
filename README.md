@@ -76,7 +76,7 @@ mtcars %>%
 mtcars %>%
     chart_ist(x = "hp") %>%
     add_ist("disp", name = "Tooltip") %>%
-    hover_ist()
+    hover_ist(prefix = "$", suffix = "%")
     
 # more on options
 # customise series individually
@@ -119,12 +119,12 @@ mtcars[1:5,] %>%
     add_ist("disp") %>%
     baropt_ist(distributeSeries = TRUE)
     
-# customise labels
+# customise axis
 mtcars[1:5,] %>%
     chart_ist(x = rownames(.), type = "bar") %>%
     add_ist("disp") %>%
-    yaxis_ist(position = "end", prefix = "$", suffix = "M") %>%
-    xaxis_ist(position = "end")
+    yaxis_ist(position = "end", prefix = "$", suffix = "M", showGrid = TRUE) %>%
+    xaxis_ist(position = "end", showGrid = FALSE)
 ```
 
 --------------------------------
