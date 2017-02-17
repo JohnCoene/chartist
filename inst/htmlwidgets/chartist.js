@@ -51,7 +51,10 @@ HTMLWidgets.widget({
           } else {
             var chart = new Chartist.Pie('#' + el.id, data, options, resOpts);
           }
-
+        }
+        
+        if (x.hasOwnProperty('anim')){
+          chart.on('draw', x.anim.FUN);
         }
 
       },

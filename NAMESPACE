@@ -2,6 +2,7 @@
 
 export("%>%")
 export(add_ist)
+export(anim_ist)
 export(baropt_ist)
 export(chart_ist)
 export(chartistOutput)
