@@ -15,3 +15,13 @@ sumJS <- function(serie) {
 
   return(fun)
 }
+
+# add axis title
+build_title <- function(p, opts, which){
+
+
+
+  p$x$plugins$plugins <- append(p$x$plugins$plugins, list(opts))
+
+  p
+}

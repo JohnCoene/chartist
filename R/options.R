@@ -270,13 +270,15 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #' @param showLabel set to \code{FALSE} to hide labels.
 #' @param showGrid set to \code{FALSE} to hide the grid.
 #' @param offset offset axis.
+#' @param suffix add suffix to label.
+#' @param prefix add prefix to label.
 #' @param labelOffset offset labels, takes \code{integer}, \code{vector} or
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
 #' @param scaleMinSpace minimum height in pixel of scale.
 #'
 #' @export
-xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE,
-                      offset, labelOffset, scaleMinSpace){
+xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
+                      prefix = "", offset, labelOffset, scaleMinSpace){
 
   opts <- list(...)
 
@@ -285,6 +287,7 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE,
   opts$showGrid <- if(!missing(showGrid)) showGrid
   opts$offset <- if(!missing(offset)) offset
   opts$scaleMinSpace <- if(!missing(scaleMinSpace)) scaleMinSpace
+  opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
 
   p$x$options$axisX <- opts
 
@@ -300,14 +303,16 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE,
 #' @param ... additional options.
 #' @param showLabel set to \code{FALSE} to hide labels.
 #' @param showGrid set to \code{FALSE} to hide the grid.
+#' @param suffix add suffix to label.
+#' @param prefix add prefix to label.
 #' @param offset offset axis.
 #' @param labelOffset offset labels, takes \code{integer}, \code{vector} or
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
 #' @param scaleMinSpace minimum height in pixel of scale.
 #'
 #' @export
-yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE,
-                      offset, labelOffset, scaleMinSpace){
+yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
+                      prefix = "", offset, labelOffset, scaleMinSpace){
 
   opts <- list(...)
 
@@ -316,53 +321,12 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE,
   opts$showGrid <- if(!missing(showGrid)) showGrid
   opts$offset <- if(!missing(offset)) offset
   opts$scaleMinSpace <- if(!missing(scaleMinSpace)) scaleMinSpace
+  opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
 
   p$x$options$axisY <- opts
 
   p
 
-}
-
-#' Customize x axis labels
-#'
-#' Customize x axis labels
-#'
-#' @param p a chartist object.
-#' @param suffix add suffix to label.
-#' @param prefix add prefix to label.
-#' @param ... additional parameters to pass to x axis options.
-#'
-#' @export
-xlabel_ist <- function(p, suffix = "", prefix = "", ...) {
-
-  opts <- list(...)
-
-  opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
-
-  p$x$options$axisX <- append(p$x$options$axisX, opts)
-
-  p
-}
-
-#' Customize y axis labels
-#'
-#' Customize y axis labels
-#'
-#' @param p a chartist object.
-#' @param suffix add suffix to label.
-#' @param prefix add prefix to label.
-#' @param ... additional parameters to pass to y axis options.
-#'
-#' @export
-ylabel_ist <- function(p, suffix = "", prefix = "", ...) {
-
-  opts <- list(...)
-
-  opts$labelInterpolationFnc <- lab_ist(prefix, suffix)
-
-  p$x$options$axisY <- append(p$x$options$axisY, opts)
-
-  p
 }
 
 #' Configure responsive options for chartist visualisation

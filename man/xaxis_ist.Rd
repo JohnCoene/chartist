@@ -4,8 +4,8 @@
 \alias{xaxis_ist}
 \title{Tweak X axis}
 \usage{
-xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, offset, labelOffset,
-  scaleMinSpace)
+xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
+  prefix = "", offset, labelOffset, scaleMinSpace)
 }
 \arguments{
 \item{p}{a chartist object.}
@@ -15,6 +15,10 @@ xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, offset, labelOffset,
 \item{showLabel}{set to \code{FALSE} to hide labels.}
 
 \item{showGrid}{set to \code{FALSE} to hide the grid.}
+
+\item{suffix}{add suffix to label.}
+
+\item{prefix}{add prefix to label.}
 
 \item{offset}{offset axis.}
 

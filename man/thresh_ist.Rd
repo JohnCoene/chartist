@@ -9,7 +9,7 @@ thresh_ist(p, threshold)
 \arguments{
 \item{p}{a chartist object.}
 
-\item{threshold}{position of label, defaults to \code{mean} of first series}
+\item{threshold}{position of label, defaults to \code{mean} of first series.}
 }
 \description{
 Add threshold

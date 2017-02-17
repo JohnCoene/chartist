@@ -6,4 +6,9 @@ dependencies:
      - chartist.min.js
      - plugins/chartist-plugin-pointlabels.min.js
      - plugins/chartist-plugin-threshold.min.js
-   stylesheet: chartist.min.css
+     - plugins/chartist-plugin-tooltip.min.js
+     - plugins/chartist-plugin-axistitle.min.js
+   stylesheet:
+     - chartist.min.css
+     - threshold.css
+     - chartist-plugin-tooltip.css

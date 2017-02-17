@@ -12,6 +12,6 @@ label_ist(p, position = "middle")
 \item{position}{position of label}
 }
 \description{
-Add data point labels
+Add data point labels to \code{line} type chart.
 }
 
