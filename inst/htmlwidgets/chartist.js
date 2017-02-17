@@ -15,6 +15,10 @@ HTMLWidgets.widget({
         var d = document.getElementById(el.id);
         d.className += x.ratio;
 
+        if(x.hasOwnProperty('revTresh')){
+          var d = document.getElementById(el.id).style.cssText = x.revTresh;
+        }
+
         var data = x.cdat;
 
         if (x.hasOwnProperty('plugins')){

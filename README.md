@@ -2,6 +2,8 @@
 
 # chartist
 
+![chartist](http://johncoene.github.io/projects/img/chartist.JPG)
+
 R implementation of [chartist.js](https://gionkunz.github.io/chartist-js) (htmlwidget).
 
 ## Install
