@@ -60,7 +60,7 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #' @param p a chartist object.
 #' @param ... additional options.
 #' @param name name the serie, see details (optional).
-#' @param fillHoles whether to fill missing data, defaults to \code{TRUE}.
+#' @param fillHoles whether to fill missing data, defaults to \code{FALSE}.
 #' @param showPoint whether to show points, defaults to \code{TRUE}.
 #' @param showArea turn line chart into area chart, defaults to \code{FALSE}.
 #' @param lineSmoothing defaults to \code{simple}, can take an \code{integer},
@@ -98,7 +98,7 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #'    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 #'
 #' @export
-lineopt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
+lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
                         showArea = FALSE, showLine = TRUE, areaBase = 0,
                         lineSmoothing = "simple", fullWidth = TRUE, width,
                         height, low, high, chartPadding){
@@ -113,7 +113,6 @@ lineopt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
   opts$chartPadding <- if(!missing(chartPadding)) chartPadding
   opts$showArea <- if(!missing(showArea)) showArea
   opts$fullWidth <- if(!missing(fullWidth)) fullWidth
-  opts$fillHoles <- if(!missing(fillHoles)) fillHoles
   opts$showPoint <- if(!missing(showPoint)) showPoint
   opts$showLine <- if(!missing(showLine)) showLine
   opts$lineSmooth <- if(!missing(lineSmoothing) && is.numeric(lineSmoothing) || is.integer(lineSmoothing)) {
@@ -126,6 +125,9 @@ lineopt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
     htmlwidgets::JS('Chartist.Interpolation.simple()')
   } else if (!missing(lineSmoothing) && class(lineSmoothing) == "JS_EVAL") {
     lineSmoothing
+  }
+  opts$lineSmooth <- if(fillHoles == TRUE) {
+    htmlwidgets::JS("Chartist.Interpolation.cardinal({fillHoles: true,})")
   }
 
   if(!missing(name)) {
@@ -150,6 +152,8 @@ lineopt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
 #' chart. For the last label to be drawn correctly you might need to add chart
 #' padding or offset the last label with a draw event handler.
 #' @param stackBars whether to stack bars, default to \code{FALSE}.
+#' @param distributeSeries distributed serie along x axis only works for 1
+#' serie, defaults to \code{FALSE}.
 #' @param centerBars set to \code{TRUE} to draw bars on the grid lines,
 #' \code{FALSE} to draw on grid lines.
 #' @param seriesBarDistance distance in pixels between bar groups.
@@ -179,8 +183,9 @@ lineopt_ist <- function(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
 #'
 #' @export
 baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
-                        stackBars = FALSE, seriesBarDistance, width, height,
-                        low, high, chartPadding){
+                       stackBars = FALSE, distributeSeries = FALSE,
+                       seriesBarDistance, width, height, low, high,
+                       chartPadding){
 
   opts <- list(...)
 
@@ -193,6 +198,10 @@ baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
   opts$high <- if(!missing(high)) high
   opts$chartPadding <- if(!missing(chartPadding)) chartPadding
   opts$fullWidth <- if(!missing(fullWidth)) fullWidth
+  opts$distributeSeries <- if(distributeSeries == TRUE){
+    p$x$cdat$series <- p$x$cdat$series[[1]]$data
+    opts$distributeSeries <- TRUE
+  }
 
   p$x$options <- append(p$x$options, opts)
 
@@ -289,6 +298,7 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #' @param offset offset axis.
 #' @param suffix add suffix to label.
 #' @param prefix add prefix to label.
+#' @param position positon of axis.
 #' @param labelOffset offset labels, takes \code{integer}, \code{vector} or
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
 #' @param scaleMinSpace minimum height in pixel of scale.
@@ -306,7 +316,7 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #'
 #' @export
 xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-                      prefix = "", offset, labelOffset, scaleMinSpace){
+                      prefix = "", position, offset, labelOffset, scaleMinSpace){
 
   opts <- list(...)
 
@@ -333,6 +343,7 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #' @param showGrid set to \code{FALSE} to hide the grid.
 #' @param suffix add suffix to label.
 #' @param prefix add prefix to label.
+#' @param position positon of axis.
 #' @param offset offset axis.
 #' @param labelOffset offset labels, takes \code{integer}, \code{vector} or
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
@@ -351,7 +362,7 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #'
 #' @export
 yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-                      prefix = "", offset, labelOffset, scaleMinSpace){
+                      prefix = "", position, offset, labelOffset, scaleMinSpace){
 
   opts <- list(...)
 

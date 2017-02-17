@@ -5,7 +5,7 @@
 \title{Tweak X axis}
 \usage{
 xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-  prefix = "", offset, labelOffset, scaleMinSpace)
+  prefix = "", position, offset, labelOffset, scaleMinSpace)
 }
 \arguments{
 \item{p}{a chartist object.}
@@ -19,6 +19,8 @@ xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 \item{suffix}{add suffix to label.}
 
 \item{prefix}{add prefix to label.}
+
+\item{position}{positon of axis.}
 
 \item{offset}{offset axis.}
 

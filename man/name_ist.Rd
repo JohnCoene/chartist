@@ -12,4 +12,20 @@ name_ist(p)
 \description{
 Get assigned name
 }
+\examples{
+# default names
+mtcars[1:20,] \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("disp") \%>\%
+    add_ist("hp") \%>\%
+    name_ist()
+
+#assigned names
+mtcars[1:20,] \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("disp", name = "SERIE1") \%>\%
+    add_ist("hp", name = "hp") \%>\%
+    name_ist()
+
+}
 

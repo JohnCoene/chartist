@@ -5,6 +5,12 @@
 #' @param p a chartist object
 #' @param ... additional parameters to pass to \code{\link{opt_ist}}
 #'
+#' @examples
+#' mtcars[1:5,] %>%
+#'     chart_ist(type = "pie") %>%
+#'     add_ist("disp") %>%
+#'     gauge_ist()
+#'
 #' @export
 gauge_ist <- function(p, ...){
 
@@ -25,6 +31,12 @@ gauge_ist <- function(p, ...){
 #' @param p a chartist object
 #' @param ... additional parameters to pass to \code{\link{opt_ist}}
 #'
+#' @examples
+#' mtcars[1:20,] %>%
+#'     chart_ist(x = rownames(.)) %>%
+#'     add_ist("disp") %>%
+#'     scatter_ist()
+#'
 #' @export
 scatter_ist <- function(p, ...){
 
@@ -41,6 +53,21 @@ scatter_ist <- function(p, ...){
 #' Get assigned name
 #'
 #' @param p a chartist object
+#'
+#' @examples
+#' # default names
+#' mtcars[1:20,] %>%
+#'     chart_ist(x = rownames(.)) %>%
+#'     add_ist("disp") %>%
+#'     add_ist("hp") %>%
+#'     name_ist()
+#'
+#' #assigned names
+#' mtcars[1:20,] %>%
+#'     chart_ist(x = rownames(.)) %>%
+#'     add_ist("disp", name = "SERIE1") %>%
+#'     add_ist("hp", name = "hp") %>%
+#'     name_ist()
 #'
 #' @export
 name_ist <- function(p) {

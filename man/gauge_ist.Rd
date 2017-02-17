@@ -14,4 +14,11 @@ gauge_ist(p, ...)
 \description{
 Helper function to easily make a gauge chart from a pie
 }
+\examples{
+mtcars[1:5,] \%>\%
+    chart_ist(type = "pie") \%>\%
+    add_ist("disp") \%>\%
+    gauge_ist()
+
+}
 

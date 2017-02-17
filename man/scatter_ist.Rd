@@ -14,4 +14,11 @@ scatter_ist(p, ...)
 \description{
 Helper function to easily turn a line chart into a scatter plot
 }
+\examples{
+mtcars[1:20,] \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("disp") \%>\%
+    scatter_ist()
+
+}
 

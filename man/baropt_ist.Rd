@@ -5,8 +5,8 @@
 \title{Bar options}
 \usage{
 baropt_ist(p, ..., fullWidth = TRUE, centerBars = FALSE,
-  stackBars = FALSE, seriesBarDistance, width, height, low, high,
-  chartPadding)
+  stackBars = FALSE, distributeSeries = FALSE, seriesBarDistance, width,
+  height, low, high, chartPadding)
 }
 \arguments{
 \item{p}{a chartist object.}
@@ -22,6 +22,9 @@ padding or offset the last label with a draw event handler.}
 \code{FALSE} to draw on grid lines.}
 
 \item{stackBars}{whether to stack bars, default to \code{FALSE}.}
+
+\item{distributeSeries}{distributed serie along x axis only works for 1
+serie, defaults to \code{FALSE}.}
 
 \item{seriesBarDistance}{distance in pixels between bar groups.}
 

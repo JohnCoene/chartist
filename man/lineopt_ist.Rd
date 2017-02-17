@@ -4,7 +4,7 @@
 \alias{lineopt_ist}
 \title{Line options}
 \usage{
-lineopt_ist(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
+lineopt_ist(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
   showArea = FALSE, showLine = TRUE, areaBase = 0,
   lineSmoothing = "simple", fullWidth = TRUE, width, height, low, high,
   chartPadding)
@@ -16,7 +16,7 @@ lineopt_ist(p, ..., name, fillHoles = TRUE, showPoint = TRUE,
 
 \item{name}{name the serie, see details (optional).}
 
-\item{fillHoles}{whether to fill missing data, defaults to \code{TRUE}.}
+\item{fillHoles}{whether to fill missing data, defaults to \code{FALSE}.}
 
 \item{showPoint}{whether to show points, defaults to \code{TRUE}.}
 
