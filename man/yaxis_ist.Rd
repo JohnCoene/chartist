@@ -30,4 +30,16 @@ yaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 \description{
 Tweak the y axis for chartist visualisation.
 }
+\examples{
+mtcars[1:5,] \%>\%
+    chart_ist(x = rownames(.), type = "bar") \%>\%
+    add_ist("disp") \%>\%
+    yaxis_ist(suffix = " $")
+
+mtcars[1:10,] \%>\%
+    chart_ist(x = "mpg", type = "bar") \%>\%
+    add_ist("disp") \%>\%
+    yaxis_ist(offset = 200, labelOffset = list(x = -50, y = 0))
+
+}
 

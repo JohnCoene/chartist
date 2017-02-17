@@ -25,8 +25,26 @@ opt_ist(p, ..., name, width, height, low, high, chartPadding)
 \item{chartPadding}{padding around chart div.}
 }
 \description{
-Pass any option for any chart here. Also see options specific to your chart
+Pass any option to any chart here. Also see options specific to your chart
 type, \code{\link{pieopt_ist}}, \code{\link{baropt_ist}} or
 \code{\link{lineopt_ist}}
+}
+\examples{
+mtcars[1:10,] \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("wt") \%>\%
+    add_ist("drat") \%>\%
+    opt_ist(chartPadding = 10, width = 700, height = 200)
+
+mtcars[1:10,] \%>\%
+    chart_ist(x = "qsec") \%>\%
+    add_ist("disp", name = "DISP") \%>\%
+    add_ist("hp", name = "HP") \%>\%
+    opt_ist(name = "DISP", lineSmoothing = "step") \%>\%
+    opt_ist(name = "HP",
+        showArea = TRUE,
+        showLine = FALSE,
+        showPoint = FALSE)
+
 }
 

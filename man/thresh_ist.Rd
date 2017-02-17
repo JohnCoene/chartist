@@ -9,9 +9,21 @@ thresh_ist(p, threshold)
 \arguments{
 \item{p}{a chartist object.}
 
-\item{threshold}{position of label, defaults to \code{mean} of first series.}
+\item{threshold}{threshold, defaults to \code{mean} of first series.}
 }
 \description{
 Add threshold
+}
+\examples{
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist("hp") \%>\%
+    thresh_ist()
+
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist("hp") \%>\%
+    thresh_ist(220)
+
 }
 

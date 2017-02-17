@@ -30,4 +30,16 @@ xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 \description{
 Tweak the x axis for chartist visualisation.
 }
+\examples{
+mtcars[1:20,] \%>\%
+    chart_ist(x = rownames(.), type = "bar") \%>\%
+    add_ist("disp") \%>\%
+    xaxis_ist(showLabel = FALSE, showGrid = FALSE)
+
+mtcars[1:10,] \%>\%
+    chart_ist(x = "mpg", type = "bar") \%>\%
+    add_ist("disp") \%>\%
+    xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
+
+}
 

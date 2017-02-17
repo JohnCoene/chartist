@@ -12,4 +12,19 @@ hover_ist(p)
 \description{
 Add hover tooltip
 }
+\details{
+The tooltip displays series name which is passed in \code{\link{add_ist}}
+}
+\examples{
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist(values = "hp", name = "Your Tooltip") \%>\%
+    hover_ist()
+
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist(values = "hp", name = "Your <span style='color:blue;'>Tooltip</span>") \%>\%
+    hover_ist()
+
+}
 

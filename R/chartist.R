@@ -10,6 +10,11 @@
 #'   string and have \code{'px'} appended.
 #' @param elementId Use specific element id.
 #'
+#' @examples
+#' mtcars %>%
+#'     chart_ist(x = "cyl") %>%
+#'     add_ist("hp")
+#'
 #' @import htmlwidgets
 #'
 #' @export
@@ -26,6 +31,11 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
   if(!missing(x)){
 
     if(length(x) == 1) {
+
+      if(!class(data[,x]) %in% c("factor", "character")){ # order
+        data <- data[order(data[,x]),]
+      }
+
       labs <- unname(unlist(data[,x]))
     } else {
       labs <- unname(x)

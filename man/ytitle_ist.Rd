@@ -20,4 +20,11 @@ ytitle_ist(p, title = "", flipTitle = FALSE, offsetx = 0, offsety = 0)
 \description{
 Add y axis title
 }
+\examples{
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist(values = "hp") \%>\%
+    ytitle_ist(title = "disp", offsetx = 30)
+
+}
 

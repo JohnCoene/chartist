@@ -23,4 +23,10 @@ string and have \code{'px'} appended.}
 \description{
 Transform data into a chartist visualisation
 }
+\examples{
+mtcars \%>\%
+    chart_ist(x = "cyl") \%>\%
+    add_ist("hp")
+
+}
 

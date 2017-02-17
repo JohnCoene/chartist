@@ -1,5 +1,7 @@
 #' Select aspect ratio
 #'
+#' Change aspect ratio of chart.
+#'
 #' @param p a chartist object.
 #' @param ratio ratio of chart, see details and examples.
 #'
@@ -23,7 +25,14 @@
 #'   \item{\code{major-twelfth} or \code{1:3}}
 #'   \item{\code{double-octave} or \code{1:4}}
 #' }
-#' @keywords internal
+#'
+#' @examples
+#' mtcars %>%
+#'     chart_ist(x = rownames(.)) %>%
+#'     add_ist("disp") %>%
+#'     ratio_ist(ratio = "square")
+#'
+#' @export
 ratio_ist <- function(p, ratio) {
 
   if(missing(ratio)) stop("missing ratio")

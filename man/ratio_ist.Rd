@@ -12,7 +12,7 @@ ratio_ist(p, ratio)
 \item{ratio}{ratio of chart, see details and examples.}
 }
 \description{
-Select aspect ratio
+Change aspect ratio of chart.
 }
 \details{
 Valid values for \code{ratio}:
@@ -36,5 +36,11 @@ Valid values for \code{ratio}:
   \item{\code{double-octave} or \code{1:4}}
 }
 }
-\keyword{internal}
+\examples{
+mtcars \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("disp") \%>\%
+    ratio_ist(ratio = "square")
+
+}
 

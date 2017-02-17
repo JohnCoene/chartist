@@ -5,6 +5,12 @@
 #' @param p a chartist object.
 #' @param position position of label
 #'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist("hp") %>%
+#'     label_ist()
+#'
 #' @export
 label_ist <- function(p, position = "middle"){
 
@@ -24,7 +30,18 @@ label_ist <- function(p, position = "middle"){
 #' Add threshold
 #'
 #' @param p a chartist object.
-#' @param threshold position of label, defaults to \code{mean} of first series.
+#' @param threshold threshold, defaults to \code{mean} of first series.
+#'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist("hp") %>%
+#'     thresh_ist()
+#'
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist("hp") %>%
+#'     thresh_ist(220)
 #'
 #' @export
 thresh_ist <- function(p, threshold){
@@ -47,6 +64,19 @@ thresh_ist <- function(p, threshold){
 #' Add hover tooltip
 #'
 #' @param p a chartist object.
+#'
+#' @details The tooltip displays series name which is passed in \code{\link{add_ist}}
+#'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist(values = "hp", name = "Your Tooltip") %>%
+#'     hover_ist()
+#'
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist(values = "hp", name = "Your <span style='color:blue;'>Tooltip</span>") %>%
+#'     hover_ist()
 #'
 #' @export
 hover_ist <- function(p) {
@@ -71,6 +101,12 @@ hover_ist <- function(p) {
 #' @param flipTitle set to \code{TRUE} to flip title on x axis.
 #' @param offsetx offset x aligment of title.
 #' @param offsety offsety y alignment of title.
+#'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist(values = "hp") %>%
+#'     xtitle_ist(title = "HP", offsety = 30)
 #'
 #' @export
 xtitle_ist <- function(p, title = "", textAnchor = "middle", flipTitle = FALSE,
@@ -107,6 +143,12 @@ xtitle_ist <- function(p, title = "", textAnchor = "middle", flipTitle = FALSE,
 #' @param offsetx offset x aligment of title.
 #' @param offsety offsety y alignment of title.
 #'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("disp") %>%
+#'     add_ist(values = "hp") %>%
+#'     ytitle_ist(title = "disp", offsetx = 30)
+#'
 #' @export
 ytitle_ist <- function(p, title = "", flipTitle = FALSE, offsetx = 0, offsety = 0){
 
@@ -121,6 +163,37 @@ ytitle_ist <- function(p, title = "", flipTitle = FALSE, offsetx = 0, offsety = 
             x: ", offsetx, ",y: ", offsety, "}")
 
   f <- paste0("Chartist.plugins.ctAxisTitle({", axis, "}})")
+
+  opts <- htmlwidgets::JS(f)
+
+  p$x$plugins$plugins <- append(p$x$plugins$plugins, list(opts))
+
+  p
+
+}
+
+#' Add table
+#'
+#' Add a table below the chart with the accessibility plugin.
+#'
+#' @param p a chartist object.
+#' @param caption table caption.
+#' @param seriesHeader header for series.
+#' @param summary table summary.
+#'
+#' @keywords internal
+table_ist <- function(p, caption = "", seriesHeader = "", summary = ""){
+
+  opts <- list()
+
+  f <- paste0("Chartist.plugins.ctAccessibility({
+      caption: '", caption, "',
+      seriesHeader: '", seriesHeader, "',
+      summary: '", summary, "',
+      visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; ",
+      "font-size: 11px; overflow-x: auto; ",
+      "background-color: rgba(0, 0, 0, 0.1); padding: 10px'
+    })")
 
   opts <- htmlwidgets::JS(f)
 

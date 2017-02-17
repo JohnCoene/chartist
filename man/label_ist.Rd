@@ -14,4 +14,11 @@ label_ist(p, position = "middle")
 \description{
 Add data point labels to \code{line} type chart.
 }
+\examples{
+mtcars \%>\%
+    chart_ist("disp") \%>\%
+    add_ist("hp") \%>\%
+    label_ist()
+
+}
 

@@ -53,7 +53,9 @@ add_ist <- function(p, values, name, ...){
 
   data <- get("data", envir = cdat)
 
-  values = data[,values]
+  if(length(values) == 1) {
+    values = data[,values]
+  }
 
   if(!tolower(p$x$type) %in% c("pie")){
     p$x$cdat$series <- append(p$x$cdat$series, list(list(name = name, data = values)))

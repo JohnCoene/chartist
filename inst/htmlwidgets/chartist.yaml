@@ -8,6 +8,7 @@ dependencies:
      - plugins/chartist-plugin-threshold.min.js
      - plugins/chartist-plugin-tooltip.min.js
      - plugins/chartist-plugin-axistitle.min.js
+     - plugins/chartist-plugin-accessibility.min.js
    stylesheet:
      - chartist.min.css
      - threshold.css

@@ -1,6 +1,6 @@
 #' Configure options for chartist visualisation
 #'
-#' Pass any option for any chart here. Also see options specific to your chart
+#' Pass any option to any chart here. Also see options specific to your chart
 #' type, \code{\link{pieopt_ist}}, \code{\link{baropt_ist}} or
 #' \code{\link{lineopt_ist}}
 #'
@@ -13,6 +13,23 @@
 #' @param low lower bound of value.
 #' @param high higher bound of value.
 #' @param chartPadding padding around chart div.
+#'
+#' @examples
+#' mtcars[1:10,] %>%
+#'     chart_ist(x = rownames(.)) %>%
+#'     add_ist("wt") %>%
+#'     add_ist("drat") %>%
+#'     opt_ist(chartPadding = 10, width = 700, height = 200)
+#'
+#' mtcars[1:10,] %>%
+#'     chart_ist(x = "qsec") %>%
+#'     add_ist("disp", name = "DISP") %>%
+#'     add_ist("hp", name = "HP") %>%
+#'     opt_ist(name = "DISP", lineSmoothing = "step") %>%
+#'     opt_ist(name = "HP",
+#'         showArea = TRUE,
+#'         showLine = FALSE,
+#'         showPoint = FALSE)
 #'
 #' @export
 opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
@@ -276,6 +293,17 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
 #' @param scaleMinSpace minimum height in pixel of scale.
 #'
+#' @examples
+#' mtcars[1:20,] %>%
+#'     chart_ist(x = rownames(.), type = "bar") %>%
+#'     add_ist("disp") %>%
+#'     xaxis_ist(showLabel = FALSE, showGrid = FALSE)
+#'
+#' mtcars[1:10,] %>%
+#'     chart_ist(x = "mpg", type = "bar") %>%
+#'     add_ist("disp") %>%
+#'     xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
+#'
 #' @export
 xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
                       prefix = "", offset, labelOffset, scaleMinSpace){
@@ -309,6 +337,17 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #' @param labelOffset offset labels, takes \code{integer}, \code{vector} or
 #' \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.
 #' @param scaleMinSpace minimum height in pixel of scale.
+#'
+#' @examples
+#' mtcars[1:5,] %>%
+#'     chart_ist(x = rownames(.), type = "bar") %>%
+#'     add_ist("disp") %>%
+#'     yaxis_ist(suffix = " $")
+#'
+#' mtcars[1:10,] %>%
+#'     chart_ist(x = "mpg", type = "bar") %>%
+#'     add_ist("disp") %>%
+#'     yaxis_ist(offset = 200, labelOffset = list(x = -50, y = 0))
 #'
 #' @export
 yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
