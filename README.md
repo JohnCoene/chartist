@@ -2,7 +2,7 @@
 
 # chartist
 
-R implementation of chartist.js
+R implementation of [chartist.js](https://gionkunz.github.io/chartist-js) (htmlwidget).
 
 ## Install
 

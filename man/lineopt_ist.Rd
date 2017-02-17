@@ -6,8 +6,8 @@
 \usage{
 lineopt_ist(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
   showArea = FALSE, showLine = TRUE, areaBase = 0,
-  lineSmoothing = "simple", fullWidth = TRUE, width, height, low, high,
-  chartPadding)
+  lineSmoothing = "simple", fullWidth = TRUE, distributeSeries = FALSE,
+  width, height, low, high, chartPadding)
 }
 \arguments{
 \item{p}{a chartist object.}
@@ -34,6 +34,9 @@ lineopt_ist(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
 drawn and the chart elements will expand to the full available width of the
 chart. For the last label to be drawn correctly you might need to add chart
 padding or offset the last label with a draw event handler.}
+
+\item{distributeSeries}{distributed serie along x axis only works for 1
+serie, defaults to \code{FALSE}.}
 
 \item{width}{set fixed width in pixels or percent (i.e.: \code{300px}, \code{70\%}).}
 

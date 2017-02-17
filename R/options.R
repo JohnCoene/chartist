@@ -71,6 +71,8 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #' drawn and the chart elements will expand to the full available width of the
 #' chart. For the last label to be drawn correctly you might need to add chart
 #' padding or offset the last label with a draw event handler.
+#' @param distributeSeries distributed serie along x axis only works for 1
+#' serie, defaults to \code{FALSE}.
 #' @param width set fixed width in pixels or percent (i.e.: \code{300px}, \code{70\%}).
 #' @param height set fixed height in pixels or percent
 #' (i.e.: \code{300px}, \code{70\%}).
@@ -100,8 +102,9 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #' @export
 lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
                         showArea = FALSE, showLine = TRUE, areaBase = 0,
-                        lineSmoothing = "simple", fullWidth = TRUE, width,
-                        height, low, high, chartPadding){
+                        lineSmoothing = "simple", fullWidth = TRUE,
+                        distributeSeries = FALSE, width, height, low, high,
+                        chartPadding){
 
   opts <- list(...)
 
@@ -115,20 +118,26 @@ lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
   opts$fullWidth <- if(!missing(fullWidth)) fullWidth
   opts$showPoint <- if(!missing(showPoint)) showPoint
   opts$showLine <- if(!missing(showLine)) showLine
-  opts$lineSmooth <- if(!missing(lineSmoothing) && is.numeric(lineSmoothing) || is.integer(lineSmoothing)) {
-    htmlwidgets::JS('Chartist.Interpolation.simple({divisor: ', lineSmoothing,'})')
+
+  if(!missing(lineSmoothing) && is.numeric(lineSmoothing) || is.integer(lineSmoothing)) {
+    opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.simple({divisor: ', lineSmoothing,'})')
   } else if (!missing(lineSmoothing) && lineSmoothing == "step"){
-    htmlwidgets::JS('Chartist.Interpolation.step()')
+    opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.step()')
   } else if (!missing(lineSmoothing) && lineSmoothing == "none"){
-    htmlwidgets::JS('Chartist.Interpolation.none()')
+    opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.none()')
   } else if (!missing(lineSmoothing) && lineSmoothing == "simple"){
-    htmlwidgets::JS('Chartist.Interpolation.simple()')
-  } else if (!missing(lineSmoothing) && class(lineSmoothing) == "JS_EVAL") {
-    lineSmoothing
+    opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.simple()')
   }
-  opts$lineSmooth <- if(fillHoles == TRUE) {
-    htmlwidgets::JS("Chartist.Interpolation.cardinal({fillHoles: true,})")
+
+  if(fillHoles == TRUE) {
+    opts$lineSmooth <- htmlwidgets::JS("Chartist.Interpolation.cardinal({fillHoles: true,})")
   }
+
+  if(distributeSeries == TRUE){
+    p$x$cdat$series <- p$x$cdat$series[[1]]$data
+    opts$distributeSeries <- TRUE
+  }
+
 
   if(!missing(name)) {
     specopts <- list(opts)
@@ -198,7 +207,7 @@ baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
   opts$high <- if(!missing(high)) high
   opts$chartPadding <- if(!missing(chartPadding)) chartPadding
   opts$fullWidth <- if(!missing(fullWidth)) fullWidth
-  opts$distributeSeries <- if(distributeSeries == TRUE){
+  if(distributeSeries == TRUE){
     p$x$cdat$series <- p$x$cdat$series[[1]]$data
     opts$distributeSeries <- TRUE
   }
