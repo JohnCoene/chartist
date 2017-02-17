@@ -4,10 +4,14 @@
 \alias{hover_ist}
 \title{Add hover tooltip}
 \usage{
-hover_ist(p)
+hover_ist(p, prefix = "", suffix = "")
 }
 \arguments{
 \item{p}{a chartist object.}
+
+\item{prefix}{add prefix to label.}
+
+\item{suffix}{add suffix to label.}
 }
 \description{
 Add hover tooltip

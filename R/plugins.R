@@ -64,6 +64,8 @@ thresh_ist <- function(p, threshold){
 #' Add hover tooltip
 #'
 #' @param p a chartist object.
+#' @param suffix add suffix to label.
+#' @param prefix add prefix to label.
 #'
 #' @details The tooltip displays series name which is passed in \code{\link{add_ist}}
 #'
@@ -79,11 +81,14 @@ thresh_ist <- function(p, threshold){
 #'     hover_ist()
 #'
 #' @export
-hover_ist <- function(p) {
+hover_ist <- function(p, prefix = "", suffix = "") {
 
   opts <- list()
 
-  opts <- htmlwidgets::JS("Chartist.plugins.tooltip()")
+  transformTooltipTextFnc <- lab_ist(prefix, suffix)
+
+  opts <- htmlwidgets::JS("Chartist.plugins.tooltip({transformTooltipTextFnc:",
+                          transformTooltipTextFnc,"})")
 
   p$x$plugins$plugins <- append(p$x$plugins$plugins, list(opts))
 
