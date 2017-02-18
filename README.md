@@ -188,7 +188,6 @@ mtcars %>%
     chart_ist("wt") %>%
     add_ist("disp") %>%
     add_ist("hp") %>%
-    scatter_ist() %>%
     ganim_ist()
     
 # make your own

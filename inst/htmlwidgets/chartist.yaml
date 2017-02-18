@@ -13,6 +13,7 @@ dependencies:
      - chartist.min.css
      - threshold.css
      - chartist-plugin-tooltip.css
+     - style.css
  - name: waypoints
    version: 4.0.1
    src: htmlwidgets/lib/waypoints-4.0.1

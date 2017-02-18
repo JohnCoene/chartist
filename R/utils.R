@@ -18,8 +18,6 @@ sumJS <- function(serie) {
 
 anim_fun <- function(p, type, target, d){
   
-  foo <- ifelse(length(p$x$anim$FUN), substr(p$x$anim$FUN, 0, nchar(p$x$anim$FUN)-1), "")
-  
   if(length(p$x$anim$FUN)){
     
     foo <- substr(p$x$anim$FUN, 0, nchar(p$x$anim$FUN)-1)
@@ -30,9 +28,9 @@ anim_fun <- function(p, type, target, d){
       }
     }")
     
-    foo <- htmlwidgets::JS(d)
+    fun <- htmlwidgets::JS(d)
     
-    opts <- list(FUN = foo)
+    opts <- list(FUN = fun)
     
     p$x$anim <- opts
     
@@ -44,9 +42,9 @@ anim_fun <- function(p, type, target, d){
       }
     }")
     
-    foo <- htmlwidgets::JS(d)
+    fun <- htmlwidgets::JS(d)
     
-    opts <- list(FUN = foo)
+    opts <- list(FUN = fun)
     
     p$x$anim <- opts
   }
