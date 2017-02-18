@@ -59,7 +59,7 @@ HTMLWidgets.widget({
           element: document.getElementById(el.id),
           handler: function(direction) {chart.on('draw', x.anim.FUN)
           },
-          offset: '100%'
+          offset: '50%'
         })
         }
 
