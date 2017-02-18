@@ -4,7 +4,7 @@
 \alias{anim_ist}
 \title{Animate chart}
 \usage{
-anim_ist(p, ..., type, anim, begin, dur, from, to, easing)
+anim_ist(p, type, anim, begin, dur, from, to, easing, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
@@ -22,6 +22,8 @@ anim_ist(p, ..., type, anim, begin, dur, from, to, easing)
 \item{to}{end of animation.}
 
 \item{easing}{apply easing.}
+
+\item{...}{any other param to pass to \code{anim}.}
 }
 \description{
 Animate chart

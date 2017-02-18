@@ -9,7 +9,7 @@ scatter_ist(p, ...)
 \arguments{
 \item{p}{a chartist object}
 
-\item{...}{additional parameters to pass to \code{\link{opt_ist}}}
+\item{...}{additional parameters to pass to \code{\link{opt_ist}}.}
 }
 \description{
 Helper function to easily turn a line chart into a scatter plot

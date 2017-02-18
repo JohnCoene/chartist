@@ -29,7 +29,7 @@ gauge_ist <- function(p, ...){
 #' Helper function to easily turn a line chart into a scatter plot
 #'
 #' @param p a chartist object
-#' @param ... additional parameters to pass to \code{\link{opt_ist}}
+#' @param ... additional parameters to pass to \code{\link{opt_ist}}.
 #'
 #' @examples
 #' mtcars[1:20,] %>%

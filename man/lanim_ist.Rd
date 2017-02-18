@@ -12,6 +12,6 @@ lanim_ist(p, type = c("line", "area"))
 \item{type}{chart element type to animate (i.e.: line, or grid).}
 }
 \description{
-out of the box animation for line and/or area chart
+Out of the box animation for line and/or area chart.
 }
 

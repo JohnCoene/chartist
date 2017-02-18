@@ -7,11 +7,6 @@
 
 R implementation of [chartist.js](https://gionkunz.github.io/chartist-js) (htmlwidget).
 
-TO DO:
-
-* add animate repeat
-* add peak chart
-
 ## Install
 
 ```R
@@ -64,25 +59,50 @@ mtcars[1:20,] %>%
     add_ist("hp") %>%
     baropt_ist(stackBars = TRUE)
     
-# add point labels using plugin
-mtcars[1:20,] %>%
-    chart_ist(x = rownames(.)) %>%
-    add_ist("disp") %>%
-    add_ist("hp") %>%
-    label_ist()
+# bipolar
+df <- data.frame(x = 1:50, y = sample(c(-25:25), 50))
+df %>%
+    chart_ist("x", type = "bar") %>%
+    add_ist("y")
     
+# peak chart with helper
+mtcars %>%
+    chart_ist("hp", type = "bar") %>%
+    add_ist("disp") %>%
+    peak_ist(size = 13)
+```
+
+## Plugins
+
+```R    
 # threshold plugin
 mtcars %>%
     chart_ist(x = "hp") %>%
     add_ist("disp") %>%
     thresh_ist()
     
-# add hover with plugin
+# hover plugin
 mtcars %>%
     chart_ist(x = "hp") %>%
     add_ist("disp", name = "Tooltip") %>%
     hover_ist(prefix = "$", suffix = "%")
     
+# point label plugin
+mtcars %>%
+    chart_ist(x = "hp") %>%
+    add_ist("disp") %>%
+    label_ist()
+
+# Axis label plugin    
+mtcars %>%
+    chart_ist(x = "hp") %>%
+    add_ist("disp") %>%
+    xtitle_ist("Hello", offsety = 20)
+```
+
+## Options
+
+```R    
 # more on options
 # customise series individually
 mtcars[1:10,] %>%
@@ -94,22 +114,22 @@ mtcars[1:10,] %>%
 
 # missing data 
 set.seed(19880525)
-df <- data.frame(x = 1:50, y = sample(c(1:75, rep(NA, 20)), 50))
+df <- data.frame(x = 1:50, 
+    y = sample(c(1:75, rep(NA, 20)), 50), 
+    z = sample(c(1:75, rep(NA, 20)), 50))
+    
+# holes
 df %>%
     chart_ist("x") %>%
-    add_ist("y") 
+    add_ist("y") %>%
+    add_ist("z") 
 
 # fill missing data
 df %>%
     chart_ist("x") %>%
     add_ist("y") %>%
+    add_ist("z") %>%
     lineopt_ist(fillHoles = TRUE)
-    
-# bipolar
-df <- data.frame(x = 1:50, y = sample(c(-25:25), 50))
-df %>%
-    chart_ist("x", type = "bar") %>%
-    add_ist("y")
     
 # multibars
 mtcars[1:20,] %>%
@@ -119,17 +139,70 @@ mtcars[1:20,] %>%
     label_ist()
 
 # distributed (categorical data)
-mtcars[1:5,] %>%
+mtcars[1:10,] %>%
     chart_ist(x = rownames(.), type = "bar") %>%
     add_ist("disp") %>%
     baropt_ist(distributeSeries = TRUE)
     
-# customise axis
+# customise axis & grid
 mtcars[1:5,] %>%
     chart_ist(x = rownames(.), type = "bar") %>%
     add_ist("disp") %>%
     yaxis_ist(position = "end", prefix = "$", suffix = "M", showGrid = TRUE) %>%
     xaxis_ist(position = "end", showGrid = FALSE)
+```
+
+## Animate
+
+```R
+# use out-of-the-box animation for line and area
+# lanim_ist
+mtcars %>%
+    chart_ist("wt") %>%
+    add_ist("disp", name = "disp") %>%
+    add_ist("hp", name = "hp") %>%
+    opt_ist(showPoint = FALSE) %>%
+    lineopt_ist(name = "hp", showArea = TRUE) %>%
+    lanim_ist()
+
+# use out-of-the-box animation for scatter plot
+# sanim_ist    
+mtcars %>%
+    chart_ist("wt") %>%
+    add_ist("disp") %>%
+    add_ist("hp") %>%
+    scatter_ist() %>%
+    sanim_ist()
+
+# use out-of-the-box animation for donut chart
+# danim_ist     
+mtcars[1:5,] %>%
+    chart_ist(x = "hp", type = "pie") %>%
+    add_ist("disp") %>%
+    pieopt_ist(donut = TRUE, showLabel = FALSE) %>%
+    danim_ist()
+    
+# use out-of-the-box animation for chart grid
+# ganim_ist     
+mtcars %>%
+    chart_ist("wt") %>%
+    add_ist("disp") %>%
+    add_ist("hp") %>%
+    scatter_ist() %>%
+    ganim_ist()
+    
+# make your own
+# line and point opacity from 0 to 1 in 2000 ms
+mtcars %>%
+    chart_ist("wt") %>%
+    add_ist("disp") %>%
+    add_ist("hp") %>%
+    anim_ist(type = c("line", "point"), 
+        anim = "opacity", 
+        begin = 0,
+        from = 0,
+        to = 1,
+        dur = 2000)
 ```
 
 --------------------------------
