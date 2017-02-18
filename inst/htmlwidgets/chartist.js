@@ -57,8 +57,7 @@ HTMLWidgets.widget({
           
         var waypoint = new Waypoint({
           element: document.getElementById(el.id),
-          handler: function() {chart.on('draw', x.anim.FUN)},
-          offset: '75%'
+          handler: function() {chart.on('draw', x.anim.FUN)}
         })
         }
         
