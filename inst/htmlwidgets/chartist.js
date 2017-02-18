@@ -54,10 +54,14 @@ HTMLWidgets.widget({
         }
         
         if (x.hasOwnProperty('anim')){
-          jQuery(document).ready(function() {
-            chart.on('draw', x.anim.FUN);
-          });
+          
+        var waypoint = new Waypoint({
+          element: document.getElementById(el.id),
+          handler: function() {chart.on('draw', x.anim.FUN)},
+          offset: '75%'
+        })
         }
+        
 
       },
 
