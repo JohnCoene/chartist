@@ -205,6 +205,8 @@ mtcars %>%
         dur = 2000)
 ```
 
+Uses jQuery (`3.1.1`) and waypoints (`2.0.3`) for animations.
+
 --------------------------------
 
 See [my other projects](http://johncoene.github.io/projects/)

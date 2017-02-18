@@ -54,7 +54,9 @@ HTMLWidgets.widget({
         }
         
         if (x.hasOwnProperty('anim')){
-          chart.on('draw', x.anim.FUN);
+          jQuery(document).ready(function() {
+            chart.on('draw', x.anim.FUN);
+          });
         }
 
       },
