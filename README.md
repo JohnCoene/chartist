@@ -152,6 +152,27 @@ mtcars[1:5,] %>%
     xaxis_ist(position = "end", showGrid = FALSE)
 ```
 
+## Advanced
+
+```R
+df <- data.frame(x = 1:20, y = runif(20, 1, 20), z = runif(20, 1, 20), w = runif(20, 1, 20))
+
+df %>%
+    chart_ist("x") %>%
+    add_ist("y", name = "s1") %>%
+    add_ist("z", name = "s2") %>%
+    add_ist("w", name = "s3") %>%
+    lineopt_ist(name = "s1", showArea = TRUE, showPoint = FALSE) %>%
+    lineopt_ist(name = "s2", showLine = FALSE) %>%
+    lineopt_ist(name = "s3", showPoint = FALSE) %>%
+    hover_ist()
+    
+df[1:10,] %>%
+  chart_ist(x = "x", type = "bar") %>%
+  add_ist(values = "y") %>%
+  baropt_ist(distributeSeries = TRUE)
+```
+
 ## Animate
 
 ```R
