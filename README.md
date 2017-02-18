@@ -7,6 +7,11 @@
 
 R implementation of [chartist.js](https://gionkunz.github.io/chartist-js) (htmlwidget).
 
+TO DO:
+
+* add animate repeat
+* add peak chart
+
 ## Install
 
 ```R

@@ -4,12 +4,14 @@
 \alias{anim_ist}
 \title{Animate chart}
 \usage{
-anim_ist(p, ..., type, target, begin, dur, from, to, easing)
+anim_ist(p, ..., type, anim, begin, dur, from, to, easing)
 }
 \arguments{
+\item{p}{a chartist object.}
+
 \item{type}{chart element type to animate (i.e.: line, or grid).}
 
-\item{target}{target of animation (i.e.: opacity).}
+\item{anim}{anim of animation (i.e.: opacity).}
 
 \item{begin}{begin index, \code{index}.}
 
@@ -18,6 +20,8 @@ anim_ist(p, ..., type, target, begin, dur, from, to, easing)
 \item{from}{start of animation.}
 
 \item{to}{end of animation.}
+
+\item{easing}{apply easing.}
 }
 \description{
 Animate chart

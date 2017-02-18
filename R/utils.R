@@ -25,7 +25,7 @@ anim_fun <- function(p, type, target, d){
     foo <- substr(p$x$anim$FUN, 0, nchar(p$x$anim$FUN)-1)
     
     d <- paste0(foo, "
-      if(data.type === '", type, "'){
+      if(", type, "){
         data.element.animate({", target, ":{", d, "}});
       }
     }")
@@ -39,7 +39,7 @@ anim_fun <- function(p, type, target, d){
   } else {
     d <- paste0("
     function(data){
-      if(data.type === '", type, "'){
+      if(", type, "){
         data.element.animate({", target, ":{", d, "}});
       }
     }")
@@ -53,4 +53,15 @@ anim_fun <- function(p, type, target, d){
   
   p
   
+}
+
+type_it <- function(type){
+  
+  if(length(type) > 1){
+    type <- paste0(type, collapse = "' || data.type === '")
+  } 
+  
+  type <- paste0("data.type === '", type, "'")
+  
+  return(type)
 }
