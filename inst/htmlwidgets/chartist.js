@@ -54,13 +54,17 @@ HTMLWidgets.widget({
         }
         
         if (x.hasOwnProperty('anim')){
-  
-        var waypoint = new Waypoint({
-          element: document.getElementById(el.id),
-          handler: function(direction) {chart.on('draw', x.anim.FUN)
-          },
-          offset: '50%'
-        })
+        
+        chart.on('draw', x.anim.FUN);
+        
+        chart.on('created', function() {
+          if(window.__anim21278907124) {
+            clearTimeout(window.__anim21278907124);
+            window.__anim21278907124 = null;
+          }
+          window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+        });
+        
         }
 
       },
