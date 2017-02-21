@@ -16,31 +16,31 @@
 #' @examples
 #' # basic example
 #' mtcars[1:10,] %>%
-#'   chart_ist(x = mpg) %>%
-#'   add_ist(disp) %>%
-#'   add_ist(hp)
+#'   chart_ist(x = "mpg") %>%
+#'   add_ist("disp") %>%
+#'   add_ist("hp")
 #'
 #' # option applies to both "disp" and "hp"
 #' mtcars[1:10,] %>%
-#'   chart_ist(x = mpg) %>%
-#'   add_ist(disp) %>%
-#'   add_ist(hp) %>%
+#'   chart_ist(x = "mpg") %>%
+#'   add_ist("disp") %>%
+#'   add_ist("hp") %>%
 #'   opt_ist(showArea = TRUE)
 #'
 #' # use names to apply different option to each serie
 #' mtcars[1:10,] %>%
-#'   chart_ist(x = mpg) %>%
-#'   add_ist(disp, name = "disp") %>%
-#'   add_ist(hp, name = "hp") %>%
+#'   chart_ist(x = "mpg") %>%
+#'   add_ist("disp", name = "disp") %>%
+#'   add_ist("hp", name = "hp") %>%
 #'   opt_ist(name = "hp", showArea = TRUE, showPoint = FALSE) %>%
 #'   opt_ist(name = "disp", lineSmoothing = "step")
 #'
 #' # if you haven't assigned names you can retrieve generated ones with name_ist
 #' # See details for generated names logic
 #' mtcars[1:10,] %>%
-#'   chart_ist(x = mpg) %>%
-#'   add_ist(disp, name = "disp") %>%
-#'   add_ist(hp, name = "hp") %>%
+#'   chart_ist(x = "mpg") %>%
+#'   add_ist("disp", name = "disp") %>%
+#'   add_ist("hp", name = "hp") %>%
 #'   name_ist()
 #'
 #' @seealso \code{\link{name_ist}}, \code{\link{opt_ist}}
@@ -53,7 +53,9 @@ add_ist <- function(p, values, name, ...){
 
   data <- get("data", envir = cdat)
 
-  values <- eval(substitute(values), data)
+  if(length(values) == 1) {
+    values = data[,values]
+  }
 
   if(!tolower(p$x$type) %in% c("pie")){
     p$x$cdat$series <- append(p$x$cdat$series, list(list(name = name, data = values)))

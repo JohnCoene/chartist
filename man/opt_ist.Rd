@@ -30,18 +30,16 @@ type, \code{\link{pieopt_ist}}, \code{\link{baropt_ist}} or
 \code{\link{lineopt_ist}}
 }
 \examples{
-mtcars$models <- row.names(mtcars)
-
 mtcars[1:10,] \%>\%
-    chart_ist(x = models) \%>\%
-    add_ist(wt) \%>\%
-    add_ist(drat) \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("wt") \%>\%
+    add_ist("drat") \%>\%
     opt_ist(chartPadding = 10, width = 700, height = 200)
 
 mtcars[1:10,] \%>\%
-    chart_ist(x = qsec) \%>\%
-    add_ist(disp, name = "DISP") \%>\%
-    add_ist(hp, name = "HP") \%>\%
+    chart_ist(x = "qsec") \%>\%
+    add_ist("disp", name = "DISP") \%>\%
+    add_ist("hp", name = "HP") \%>\%
     opt_ist(name = "DISP", lineSmoothing = "step") \%>\%
     opt_ist(name = "HP",
         showArea = TRUE,

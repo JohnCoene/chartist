@@ -14,5 +14,4 @@ draw_ist(p, fun)
 \description{
 Pass Javascript function to \code{chart.on("draw", your_fun)}.d
 }
-\keyword{internal}
 

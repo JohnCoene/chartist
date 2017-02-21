@@ -54,19 +54,19 @@ Pass options to \code{line} type.
 }
 \examples{
 mtcars \%>\%
-   chart_ist(x = mpg, type = "line") \%>\%
-   add_ist(disp) \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp") \%>\%
    lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
 
 mtcars \%>\%
-   chart_ist(x = mpg, type = "line") \%>\%
-   add_ist(disp) \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp") \%>\%
    lineopt_ist(lineSmoothing = "step", showLine = TRUE, showPoint = FALSE)
 
 mtcars \%>\%
-   chart_ist(x = mpg, type = "line") \%>\%
-   add_ist(disp, name = "disp") \%>\%
-   add_ist(hp, name = "hp") \%>\%
+   chart_ist(x = "mpg", type = "line") \%>\%
+   add_ist("disp", name = "disp") \%>\%
+   add_ist("hp", name = "hp") \%>\%
    lineopt_ist(name = "disp", lineSmoothing = "none") \%>\%
    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 

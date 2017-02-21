@@ -14,11 +14,4 @@ peak_ist(p, size = 15)
 \description{
 Turn bar chart into peak chart
 }
-\examples{
-mtcars \%>\%
-    chart_ist(qsec, type = "bar") \%>\%
-    add_ist(hp) \%>\%
-    peak_ist()
-
-}
 

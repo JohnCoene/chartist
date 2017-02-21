@@ -52,15 +52,19 @@ HTMLWidgets.widget({
             var chart = new Chartist.Pie('#' + el.id, data, options, resOpts);
           }
         }
-
+        
         if (x.hasOwnProperty('anim')){
-
+        
         chart.on('draw', x.anim.FUN);
-
-        if(x.hasOwnProperty('loop')){
-          chart.on('created', function() {setTimeout(chart.update.bind(chart), x.loop.ms);});
-        }
-
+        
+        chart.on('created', function() {
+          if(window.__anim21278907124) {
+            clearTimeout(window.__anim21278907124);
+            window.__anim21278907124 = null;
+          }
+          window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+        });
+        
         }
 
       },

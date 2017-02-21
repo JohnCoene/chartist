@@ -4,7 +4,7 @@
 \alias{chart_ist}
 \title{Initiate a chartist visualisation}
 \usage{
-chart_ist(data, x, type = "line", width = "100\%", height = "100\%",
+chart_ist(data, x, type = "line", width = NULL, height = NULL,
   elementId = NULL)
 }
 \arguments{
@@ -16,7 +16,7 @@ chart_ist(data, x, type = "line", width = "100\%", height = "100\%",
 
 \item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended, defaults to \code{100\%}.}
+string and have \code{'px'} appended.}
 
 \item{elementId}{Use specific element id.}
 }
@@ -25,8 +25,8 @@ Transform data into a chartist visualisation
 }
 \examples{
 mtcars \%>\%
-    chart_ist(cyl) \%>\%
-    add_ist(hp)
+    chart_ist(x = "cyl") \%>\%
+    add_ist("hp")
 
 }
 

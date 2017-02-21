@@ -13,9 +13,9 @@ danim_ist(p)
 Out of the box animation for donut chart
 }
 \examples{
-mtcars[1:5,] \%>\%
-    chart_ist(x = hp, type = "pie") \%>\%
-    add_ist(disp) \%>\%
+mtcars[1:5,] \%>\% 
+    chart_ist(x = "hp", type = "pie") \%>\%
+    add_ist("disp") \%>\%
     pieopt_ist(donut = TRUE, showLabel = TRUE) \%>\%
     danim_ist()
 

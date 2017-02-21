@@ -7,18 +7,18 @@
 #' @param x Must be passed for \code{line} and \code{bar} (\code{type}).
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended, defaults to \code{100\%}.
+#'   string and have \code{'px'} appended.
 #' @param elementId Use specific element id.
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist(cyl) %>%
-#'     add_ist(hp)
+#'     chart_ist(x = "cyl") %>%
+#'     add_ist("hp")
 #'
 #' @import htmlwidgets
 #'
 #' @export
-chart_ist <- function(data, x, type = "line", width = "100%", height = "100%",
+chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
                       elementId = NULL) {
 
   if(missing(x) && tolower(type) %in% c("line", "bar")) {
@@ -27,12 +27,20 @@ chart_ist <- function(data, x, type = "line", width = "100%", height = "100%",
 
   if(missing(data)) stop("must pass data")
   if(!tolower(type) %in% c("bar", "line", "pie")) stop("type takes: line, bar or pie")
-  
+
   if(!missing(x)){
-    labs <- eval(substitute(x), data)
-    if(!class(labs) %in% c("factor", "character")){ # order
-      data <- data[order(data[[deparse(substitute(x))]]),]
+
+    if(length(x) == 1) {
+
+      if(!class(data[,x]) %in% c("factor", "character")){ # order
+        data <- data[order(data[,x]),]
+      }
+
+      labs <- unname(unlist(data[,x]))
+    } else {
+      labs <- unname(x)
     }
+
   } else {
     labs <- list()
   }

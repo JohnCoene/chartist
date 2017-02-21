@@ -28,17 +28,4 @@ anim_ist(p, type, anim, begin, dur, from, to, easing, ...)
 \description{
 Animate chart
 }
-\examples{
-mtcars \%>\%
-    chart_ist(wt) \%>\%
-    add_ist(disp) \%>\%
-    add_ist(hp) \%>\%
-    anim_ist(type = c("line", "point"),
-        anim = "opacity",
-        begin = 0,
-        from = 0,
-        to = 1,
-        dur = 2000)
-
-}
 

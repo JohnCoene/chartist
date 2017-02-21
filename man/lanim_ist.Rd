@@ -14,14 +14,4 @@ lanim_ist(p, type = c("line", "area"))
 \description{
 Out of the box animation for line and/or area chart.
 }
-\examples{
-mtcars \%>\%
-    chart_ist(wt) \%>\%
-    add_ist(disp, name = "disp") \%>\%
-    add_ist(hp, name = "hp") \%>\%
-    opt_ist(showPoint = FALSE) \%>\%
-    lineopt_ist(name = "hp", showArea = TRUE) \%>\%
-    lanim_ist()
-
-}
 

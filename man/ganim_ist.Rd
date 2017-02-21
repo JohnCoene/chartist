@@ -12,12 +12,4 @@ ganim_ist(p)
 \description{
 Animate grid
 }
-\examples{
-mtcars \%>\%
-    chart_ist(wt) \%>\%
-    add_ist(disp) \%>\%
-    add_ist(hp) \%>\%
-    ganim_ist()
-
-}
 

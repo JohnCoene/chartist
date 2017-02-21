@@ -37,11 +37,9 @@ Valid values for \code{ratio}:
 }
 }
 \examples{
-mtcars$models <- row.names(mtcars)
-
 mtcars \%>\%
-    chart_ist(x = models) \%>\%
-    add_ist(disp) \%>\%
+    chart_ist(x = rownames(.)) \%>\%
+    add_ist("disp") \%>\%
     ratio_ist(ratio = "square")
 
 }

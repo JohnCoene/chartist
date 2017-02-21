@@ -27,16 +27,4 @@ resp_ist(p, ..., query, width, height, low, high, chartPadding)
 \description{
 Configure responsive options for chartist visualisation
 }
-\examples{
-mtcars$models <- row.names(mtcars)
-
-mtcars \%>\%
-    chart_ist(models) \%>\%
-    add_ist(qsec) \%>\%
-    resp_ist(query = "screen and (max-width: 640px)", low = 15,
-        chartPadding = 50) \%>\%
-    resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)",
-        chartPadding = 0)
-
-}
 
