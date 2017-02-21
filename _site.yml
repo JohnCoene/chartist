@@ -1,0 +1,21 @@
+name: "chartist"
+output_dir: "."
+navbar:
+  title: "chartist"
+  left:
+    - text: "Home"
+      href: index.html
+  right:
+    - text: "Chart types"
+      href: types.html
+    - text: "Plugins"
+      href: plugins.html
+    - text: "Responsive Options"
+      href: responsive.html
+    - text: "Options"
+      href: options.html
+    - text: "Animations"
+      href: animations.html
+output:
+  html_document:
+    theme: simplex

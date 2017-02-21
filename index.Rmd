@@ -1,0 +1,76 @@
+---
+title: "chartist"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig_width=9)
+
+library(dplyr)
+library(chartist)
+```
+
+```{r, echo=FALSE}
+mtcars %>%
+  mutate(id = 1:n()) %>%
+  chart_ist("id", height = 300) %>%
+  add_ist("mpg", name = "mpg") %>%
+  add_ist("wt", name = "wt") %>%
+  add_ist("qsec", name = "qsec") %>%
+  lineopt_ist(name = "drat", lineSmoothing = "step", showPoint = FALSE) %>%
+  lineopt_ist(name = "wt", showLine = TRUE, showPoint = FALSE) %>%
+  lineopt_ist(name = "qsec", showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  lanim_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000)
+```
+
+[chartist](https://github.com/JohnCoene/chartist) is an R [htmlwidget](http://htmlwidgets.org/) for [chartist.js](https://gionkunz.github.io/chartist-js).
+
+> You may think that this is just yet an other charting library. But Chartist.js is the product of a community that was disappointed about the abilities provided by other charting libraries. Of course there are hundreds of other great charting libraries but after using them there were always tweaks you would have wished for that were not included. 
+--- chartist.js
+
+# Install
+
+```{r, eval=FALSE}
+devtools::install_github("JohnCoene/chartist")
+```
+
+#  Your first chart
+
+1. Pipe your data
+2. Initiate chart object wtih `chart_ist`
+2. Add series with `add_ist`
+
+```{r}
+library(chartist)
+df <- data.frame(x = 1:20, y = runif(20, 0, 20))
+
+df %>%
+  chart_ist("x", height = 250) %>%
+  add_ist("y")
+```
+
+# Advanced example
+
+Below is the code used to generate the very banner of this page.
+
+```{r, eval=FALSE}
+library(dplyr)
+
+mtcars %>%
+  mutate(id = 1:n()) %>%
+  chart_ist("id") %>%
+  add_ist("drat", name = "drat") %>%
+  add_ist("wt", name = "wt") %>%
+  add_ist("qsec", name = "qsec") %>%
+  lineopt_ist(name = "drat", showArea = TRUE, showPoint = FALSE) %>%
+  lineopt_ist(name = "wt", showLine = FALSE) %>%
+  lineopt_ist(name = "qsec", lineSmoothing = "step", showPoint = FALSE) %>%
+  xaxis_ist(showGrid = FALSE) %>%
+  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  lanim_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000)
+```
