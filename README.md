@@ -33,7 +33,7 @@ mtcars[1:20,] %>%
 mtcars[1:15,] %>%
     chart_ist(x = rownames(.)) %>%
     add_ist("disp") %>%
-    lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+    lineopt_ist(showArea = TRUE, showPoint = FALSE)
 
 # pie    
 mtcars[1:5,] %>%
@@ -224,8 +224,6 @@ mtcars %>%
         to = 1,
         dur = 2000)
 ```
-
-Uses jQuery (`3.1.1`) and waypoints (`2.0.3`) for animations.
 
 --------------------------------
 
