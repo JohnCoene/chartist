@@ -400,6 +400,15 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #' @param high higher bound of value.
 #' @param chartPadding padding around chart div.
 #'
+#' @examples
+#' mtcars %>%
+#'     chart_ist(row.names(.)) %>%
+#'     add_ist("qsec") %>%
+#'     resp_ist(query = "screen and (max-width: 640px)", low = 15,
+#'         chartPadding = 50) %>%
+#'     resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)",
+#'         chartPadding = 0)
+#'
 #' @export
 resp_ist <- function(p, ..., query, width, height, low, high, chartPadding){
 
@@ -407,15 +416,13 @@ resp_ist <- function(p, ..., query, width, height, low, high, chartPadding){
 
   opts <- list(...)
 
-  opts$query <- list()
+  opts$width <- if(!missing(width)) width
+  opts$height <- if(!missing(height)) height
+  opts$low <- if(!missing(low)) low
+  opts$high <- if(!missing(high)) high
+  opts$chartPadding <- if(!missing(chartPadding)) chartPadding
 
-  opts$query$width <- if(!missing(width)) width
-  opts$query$height <- if(!missing(height)) height
-  opts$query$low <- if(!missing(low)) low
-  opts$query$high <- if(!missing(high)) high
-  opts$query$chartPadding <- if(!missing(chartPadding)) chartPadding
-
-  names(opts) <- unname(query)
+  opts <- list(query, opts)
 
   p$x$responsiveOptions <- append(p$x$responsiveOptions, opts)
 
