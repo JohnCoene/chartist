@@ -28,31 +28,31 @@ using \code{\link{name_ist}}. See examples.
 \examples{
 # basic example
 mtcars[1:10,] \%>\%
-  chart_ist(x = "mpg") \%>\%
-  add_ist("disp") \%>\%
-  add_ist("hp")
+  chart_ist(x = mpg) \%>\%
+  add_ist(disp) \%>\%
+  add_ist(hp)
 
 # option applies to both "disp" and "hp"
 mtcars[1:10,] \%>\%
-  chart_ist(x = "mpg") \%>\%
-  add_ist("disp") \%>\%
-  add_ist("hp") \%>\%
+  chart_ist(x = mpg) \%>\%
+  add_ist(disp) \%>\%
+  add_ist(hp) \%>\%
   opt_ist(showArea = TRUE)
 
 # use names to apply different option to each serie
 mtcars[1:10,] \%>\%
-  chart_ist(x = "mpg") \%>\%
-  add_ist("disp", name = "disp") \%>\%
-  add_ist("hp", name = "hp") \%>\%
+  chart_ist(x = mpg) \%>\%
+  add_ist(disp, name = "disp") \%>\%
+  add_ist(hp, name = "hp") \%>\%
   opt_ist(name = "hp", showArea = TRUE, showPoint = FALSE) \%>\%
   opt_ist(name = "disp", lineSmoothing = "step")
 
 # if you haven't assigned names you can retrieve generated ones with name_ist
 # See details for generated names logic
 mtcars[1:10,] \%>\%
-  chart_ist(x = "mpg") \%>\%
-  add_ist("disp", name = "disp") \%>\%
-  add_ist("hp", name = "hp") \%>\%
+  chart_ist(x = mpg) \%>\%
+  add_ist(disp, name = "disp") \%>\%
+  add_ist(hp, name = "hp") \%>\%
   name_ist()
 
 }

@@ -15,16 +15,18 @@
 #' @param chartPadding padding around chart div.
 #'
 #' @examples
+#' mtcars$models <- row.names(mtcars)
+#' 
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = rownames(.)) %>%
-#'     add_ist("wt") %>%
-#'     add_ist("drat") %>%
+#'     chart_ist(x = models) %>%
+#'     add_ist(wt) %>%
+#'     add_ist(drat) %>%
 #'     opt_ist(chartPadding = 10, width = 700, height = 200)
 #'
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = "qsec") %>%
-#'     add_ist("disp", name = "DISP") %>%
-#'     add_ist("hp", name = "HP") %>%
+#'     chart_ist(x = qsec) %>%
+#'     add_ist(disp, name = "DISP") %>%
+#'     add_ist(hp, name = "HP") %>%
 #'     opt_ist(name = "DISP", lineSmoothing = "step") %>%
 #'     opt_ist(name = "HP",
 #'         showArea = TRUE,
@@ -83,19 +85,19 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #'
 #' @examples
 #' mtcars %>%
-#'    chart_ist(x = "mpg", type = "line") %>%
-#'    add_ist("disp") %>%
+#'    chart_ist(x = mpg, type = "line") %>%
+#'    add_ist(disp) %>%
 #'    lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
 #'
 #' mtcars %>%
-#'    chart_ist(x = "mpg", type = "line") %>%
-#'    add_ist("disp") %>%
+#'    chart_ist(x = mpg, type = "line") %>%
+#'    add_ist(disp) %>%
 #'    lineopt_ist(lineSmoothing = "step", showLine = TRUE, showPoint = FALSE)
 #'
 #' mtcars %>%
-#'    chart_ist(x = "mpg", type = "line") %>%
-#'    add_ist("disp", name = "disp") %>%
-#'    add_ist("hp", name = "hp") %>%
+#'    chart_ist(x = mpg, type = "line") %>%
+#'    add_ist(disp, name = "disp") %>%
+#'    add_ist(hp, name = "hp") %>%
 #'    lineopt_ist(name = "disp", lineSmoothing = "none") %>%
 #'    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 #'
@@ -177,17 +179,17 @@ lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
 #' mtcars$models <- rownames(mtcars)
 #'
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = "models", type = "bar") %>%
-#'     add_ist("cyl") %>%
-#'     add_ist("carb") %>%
-#'     add_ist("gear") %>%
+#'     chart_ist(x = models, type = "bar") %>%
+#'     add_ist(cyl) %>%
+#'     add_ist(carb) %>%
+#'     add_ist(gear) %>%
 #'     baropt_ist(stackBars = TRUE)
 #'
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = "models", type = "bar") %>%
-#'     add_ist("cyl") %>%
-#'     add_ist("carb") %>%
-#'     add_ist("gear") %>%
+#'     chart_ist(x = models, type = "bar") %>%
+#'     add_ist(cyl) %>%
+#'     add_ist(carb) %>%
+#'     add_ist(gear) %>%
 #'     baropt_ist(seriesBarDistance = 10, centerBars = TRUE)
 #'
 #' @export
@@ -243,22 +245,22 @@ baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
 #'
 #' mtcars[1:5,] %>%
 #'     chart_ist(type = "pie") %>%
-#'     add_ist("disp") %>%
+#'     add_ist(disp) %>%
 #'     pieopt_ist(startAngle = 270,
 #'         donut = TRUE,
 #'         donutWidth = 50,
 #'         showLabel = FALSE)
 #'
 #' mtcars[1:5,] %>%
-#'     chart_ist(x = "models", type = "pie") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = models, type = "pie") %>%
+#'     add_ist(disp) %>%
 #'     pieopt_ist(labelDirection = "explode",
 #'         labelOffset = 100,
 #'         chartPadding = 50)
 #'
 #' mtcars[1:5,] %>%
 #'     chart_ist(type = "pie") %>%
-#'     add_ist("disp") %>%
+#'     add_ist(disp) %>%
 #'     pieopt_ist(percent = TRUE)
 #'
 #' @seealso \code{\link{gauge_ist}}
@@ -313,14 +315,16 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #' @param scaleMinSpace minimum height in pixel of scale.
 #'
 #' @examples
+#' mtcars$models <- row.names(mtcars)
+#' 
 #' mtcars[1:20,] %>%
-#'     chart_ist(x = rownames(.), type = "bar") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = models, type = "bar") %>%
+#'     add_ist(disp) %>%
 #'     xaxis_ist(showLabel = FALSE, showGrid = FALSE)
 #'
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = "mpg", type = "bar") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = mpg, type = "bar") %>%
+#'     add_ist(disp) %>%
 #'     xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
 #'
 #' @export
@@ -359,14 +363,16 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #' @param scaleMinSpace minimum height in pixel of scale.
 #'
 #' @examples
+#' mtcars$models <- row.names(mtcars)
+#' 
 #' mtcars[1:5,] %>%
-#'     chart_ist(x = rownames(.), type = "bar") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = models, type = "bar") %>%
+#'     add_ist(disp) %>%
 #'     yaxis_ist(suffix = " $")
 #'
 #' mtcars[1:10,] %>%
-#'     chart_ist(x = "mpg", type = "bar") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = mpg, type = "bar") %>%
+#'     add_ist(disp) %>%
 #'     yaxis_ist(offset = 200, labelOffset = list(x = -50, y = 0))
 #'
 #' @export
@@ -400,6 +406,17 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #' @param high higher bound of value.
 #' @param chartPadding padding around chart div.
 #'
+#' @examples
+#' mtcars$models <- row.names(mtcars)
+#' 
+#' mtcars %>%
+#'     chart_ist(models) %>%
+#'     add_ist(qsec) %>%
+#'     resp_ist(query = "screen and (max-width: 640px)", low = 15,
+#'         chartPadding = 50) %>%
+#'     resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)",
+#'         chartPadding = 0)
+#'
 #' @export
 resp_ist <- function(p, ..., query, width, height, low, high, chartPadding){
 
@@ -407,15 +424,13 @@ resp_ist <- function(p, ..., query, width, height, low, high, chartPadding){
 
   opts <- list(...)
 
-  opts$query <- list()
+  opts$width <- if(!missing(width)) width
+  opts$height <- if(!missing(height)) height
+  opts$low <- if(!missing(low)) low
+  opts$high <- if(!missing(high)) high
+  opts$chartPadding <- if(!missing(chartPadding)) chartPadding
 
-  opts$query$width <- if(!missing(width)) width
-  opts$query$height <- if(!missing(height)) height
-  opts$query$low <- if(!missing(low)) low
-  opts$query$high <- if(!missing(high)) high
-  opts$query$chartPadding <- if(!missing(chartPadding)) chartPadding
-
-  names(opts) <- unname(query)
+  opts <- list(query, opts)
 
   p$x$responsiveOptions <- append(p$x$responsiveOptions, opts)
 

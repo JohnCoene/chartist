@@ -15,9 +15,10 @@ scatter_ist(p, ...)
 Helper function to easily turn a line chart into a scatter plot
 }
 \examples{
+mtcars$models <- rownames(mtcars)
 mtcars[1:20,] \%>\%
-    chart_ist(x = rownames(.)) \%>\%
-    add_ist("disp") \%>\%
+    chart_ist(x = models) \%>\%
+    add_ist(disp) \%>\%
     scatter_ist()
 
 }

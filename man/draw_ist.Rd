@@ -12,6 +12,7 @@ draw_ist(p, fun)
 \item{fun}{function, wrapped in \code{\link[htmlwidgets]{JS}}.}
 }
 \description{
-Pass Javascript function to \code{chart.on("draw", your_fun)}.d
+Pass Javascript function to \code{chart.on("draw", your_fun)}.
 }
+\keyword{internal}
 

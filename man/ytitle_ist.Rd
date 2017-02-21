@@ -22,8 +22,8 @@ Add y axis title
 }
 \examples{
 mtcars \%>\%
-    chart_ist("disp") \%>\%
-    add_ist(values = "hp") \%>\%
+    chart_ist(disp) \%>\%
+    add_ist(values = hp) \%>\%
     ytitle_ist(title = "disp", offsetx = 30)
 
 }
