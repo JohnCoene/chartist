@@ -81,28 +81,36 @@ name_ist <- function(p) {
 
 
 #' Turn bar chart into peak chart
-#' 
+#'
 #' @param p a chartist object.
 #' @param size point size.
-#' 
+#'
+#' @examples
+#' mtcars %>%
+#'     chart_ist("qsec", type = "bar") %>%
+#'     add_ist("hp") %>%
+#'     peak_ist()
+#'
 #' @export
 peak_ist <- function(p, size = 15) {
-  
+
+  if(p$x$type != "bar") warning("peak only works on chart of type bar")
+
   foo <- paste0("
     function(data) {if(data.type === 'bar') {
       data.group.append(new Chartist.Svg('circle', {
         cx: data.x2,
         cy: data.y2,
         r: (Math.abs(Chartist.getMultiValue(data.value)) / Chartist.sum(Math.abs(Chartist.getMultiValue(data.value)))) * ", size, "
-        }, 
+        },
       'ct-slice-pie'));}
     }")
-  
+
   foo <- htmlwidgets::JS(foo)
-  
+
   opts <- list(FUN = foo)
-  
+
   p$x$anim <- opts
-  
+
   p
 }
