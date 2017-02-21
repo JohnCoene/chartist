@@ -15,7 +15,7 @@ devtools::install_github("JohnCoene/chartist")
 
 ## Documentation
 
-* [site](https://JohnCoene.github.io/chartist/)
+* [site](https://JohnCoene.github.io/chartistwidget/)
 
 --------------------------------
 
