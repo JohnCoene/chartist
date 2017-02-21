@@ -4,7 +4,7 @@
 \alias{chart_ist}
 \title{Initiate a chartist visualisation}
 \usage{
-chart_ist(data, x, type = "line", width = NULL, height = NULL,
+chart_ist(data, x, type = "line", width = "100\%", height = NULL,
   elementId = NULL)
 }
 \arguments{
@@ -16,7 +16,7 @@ chart_ist(data, x, type = "line", width = NULL, height = NULL,
 
 \item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended.}
+string and have \code{'px'} appended, defaults to \code{100\%}.}
 
 \item{elementId}{Use specific element id.}
 }
