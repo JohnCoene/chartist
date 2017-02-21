@@ -4,13 +4,11 @@
 \alias{xaxis_ist}
 \title{Tweak X axis}
 \usage{
-xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-  prefix = "", position, offset, labelOffset, scaleMinSpace)
+xaxis_ist(p, showLabel = TRUE, showGrid = TRUE, suffix = "",
+  prefix = "", position, offset, labelOffset, scaleMinSpace, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{showLabel}{set to \code{FALSE} to hide labels.}
 
@@ -28,6 +26,8 @@ xaxis_ist(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 \code{list} (i.e.: \code{1}, \code{c(1,2)}, \code{list(x = 1, y = 2)}.}
 
 \item{scaleMinSpace}{minimum height in pixel of scale.}
+
+\item{...}{additional options.}
 }
 \description{
 Tweak the x axis for chartist visualisation.

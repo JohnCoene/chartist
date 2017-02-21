@@ -4,12 +4,10 @@
 \alias{opt_ist}
 \title{Configure options for chartist visualisation}
 \usage{
-opt_ist(p, ..., name, width, height, low, high, chartPadding)
+opt_ist(p, name, width, height, low, high, chartPadding, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{name}{name the serie, see details (optional).}
 
@@ -23,6 +21,8 @@ opt_ist(p, ..., name, width, height, low, high, chartPadding)
 \item{high}{higher bound of value.}
 
 \item{chartPadding}{padding around chart div.}
+
+\item{...}{additional options.}
 }
 \description{
 Pass any option to any chart here. Also see options specific to your chart

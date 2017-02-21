@@ -4,7 +4,7 @@
 \alias{chart_ist}
 \title{Initiate a chartist visualisation}
 \usage{
-chart_ist(data, x, type = "line", width = "100\%", height = "100\%",
+chart_ist(data, x, type = "line", width = "100\%", height = NULL,
   elementId = NULL)
 }
 \arguments{

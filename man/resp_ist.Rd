@@ -4,12 +4,10 @@
 \alias{resp_ist}
 \title{Configure responsive options for chartist visualisation}
 \usage{
-resp_ist(p, ..., query, width, height, low, high, chartPadding)
+resp_ist(p, query, width, height, low, high, chartPadding, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{query}{responsive query.}
 
@@ -23,6 +21,8 @@ resp_ist(p, ..., query, width, height, low, high, chartPadding)
 \item{high}{higher bound of value.}
 
 \item{chartPadding}{padding around chart div.}
+
+\item{...}{additional options.}
 }
 \description{
 Configure responsive options for chartist visualisation

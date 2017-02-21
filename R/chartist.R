@@ -18,7 +18,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-chart_ist <- function(data, x, type = "line", width = "100%", height = "100%",
+chart_ist <- function(data, x, type = "line", width = "100%", height = NULL,
                       elementId = NULL) {
 
   if(missing(x) && tolower(type) %in% c("line", "bar")) {

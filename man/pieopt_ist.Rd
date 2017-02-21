@@ -4,14 +4,12 @@
 \alias{pieopt_ist}
 \title{Pie and donut options}
 \usage{
-pieopt_ist(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE,
+pieopt_ist(p, percent = FALSE, donut = FALSE, showLabel = FALSE,
   startAngle, total, donutWidth, labelDirection, labelOffset, width, height,
-  low, high, chartPadding)
+  low, high, chartPadding, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{percent}{add percent sign}
 
@@ -41,6 +39,8 @@ or \code{implode}.}
 \item{high}{higher bound of value.}
 
 \item{chartPadding}{padding around chart div.}
+
+\item{...}{additional options.}
 }
 \description{
 Pie and donut options

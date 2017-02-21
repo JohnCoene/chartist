@@ -4,14 +4,12 @@
 \alias{baropt_ist}
 \title{Bar options}
 \usage{
-baropt_ist(p, ..., fullWidth = TRUE, centerBars = FALSE,
-  stackBars = FALSE, distributeSeries = FALSE, seriesBarDistance, width,
-  height, low, high, chartPadding)
+baropt_ist(p, fullWidth = TRUE, centerBars = FALSE, stackBars = FALSE,
+  distributeSeries = FALSE, seriesBarDistance, width, height, low, high,
+  chartPadding, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{fullWidth}{When set to true, the last grid line on the x-axis is not
 drawn and the chart elements will expand to the full available width of the
@@ -38,6 +36,8 @@ serie, defaults to \code{FALSE}.}
 \item{high}{higher bound of value.}
 
 \item{chartPadding}{padding around chart div.}
+
+\item{...}{additional options.}
 }
 \description{
 Pass options to \code{bar} type.

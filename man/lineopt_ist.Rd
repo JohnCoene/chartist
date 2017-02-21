@@ -4,15 +4,13 @@
 \alias{lineopt_ist}
 \title{Line options}
 \usage{
-lineopt_ist(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
+lineopt_ist(p, name, fillHoles = FALSE, showPoint = TRUE,
   showArea = FALSE, showLine = TRUE, areaBase = 0,
   lineSmoothing = "simple", fullWidth = TRUE, distributeSeries = FALSE,
-  width, height, low, high, chartPadding)
+  width, height, low, high, chartPadding, ...)
 }
 \arguments{
 \item{p}{a chartist object.}
-
-\item{...}{additional options.}
 
 \item{name}{name the serie, see details (optional).}
 
@@ -48,6 +46,8 @@ serie, defaults to \code{FALSE}.}
 \item{high}{higher bound of value.}
 
 \item{chartPadding}{padding around chart div.}
+
+\item{...}{additional options.}
 }
 \description{
 Pass options to \code{line} type.

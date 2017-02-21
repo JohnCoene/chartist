@@ -34,7 +34,7 @@
 #'         showPoint = FALSE)
 #'
 #' @export
-opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
+opt_ist <- function(p, name, width, height, low, high, chartPadding, ...){
 
   opts <- list(...)
 
@@ -102,11 +102,11 @@ opt_ist <- function(p, ..., name, width, height, low, high, chartPadding){
 #'    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 #'
 #' @export
-lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
+lineopt_ist <- function(p, name, fillHoles = FALSE, showPoint = TRUE,
                         showArea = FALSE, showLine = TRUE, areaBase = 0,
                         lineSmoothing = "simple", fullWidth = TRUE,
                         distributeSeries = FALSE, width, height, low, high,
-                        chartPadding){
+                        chartPadding, ...){
 
   opts <- list(...)
 
@@ -193,10 +193,10 @@ lineopt_ist <- function(p, ..., name, fillHoles = FALSE, showPoint = TRUE,
 #'     baropt_ist(seriesBarDistance = 10, centerBars = TRUE)
 #'
 #' @export
-baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
+baropt_ist <- function(p, fullWidth = TRUE, centerBars = FALSE,
                        stackBars = FALSE, distributeSeries = FALSE,
                        seriesBarDistance, width, height, low, high,
-                       chartPadding){
+                       chartPadding, ...){
 
   opts <- list(...)
 
@@ -266,9 +266,9 @@ baropt_ist <- function(p, ..., fullWidth = TRUE, centerBars = FALSE,
 #' @seealso \code{\link{gauge_ist}}
 #'
 #' @export
-pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE,
+pieopt_ist <- function(p, percent = FALSE, donut = FALSE, showLabel = FALSE,
                        startAngle, total, donutWidth, labelDirection,
-                       labelOffset, width, height, low, high, chartPadding) {
+                       labelOffset, width, height, low, high, chartPadding, ...) {
 
   opts <- list(...)
 
@@ -328,8 +328,8 @@ pieopt_ist <- function(p, ..., percent = FALSE, donut = FALSE, showLabel = FALSE
 #'     xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
 #'
 #' @export
-xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-                      prefix = "", position, offset, labelOffset, scaleMinSpace){
+xaxis_ist <- function(p, showLabel = TRUE, showGrid = TRUE, suffix = "",
+                      prefix = "", position, offset, labelOffset, scaleMinSpace, ...){
 
   opts <- list(...)
 
@@ -376,8 +376,8 @@ xaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #'     yaxis_ist(offset = 200, labelOffset = list(x = -50, y = 0))
 #'
 #' @export
-yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
-                      prefix = "", position, offset, labelOffset, scaleMinSpace){
+yaxis_ist <- function(p, showLabel = TRUE, showGrid = TRUE, suffix = "",
+                      prefix = "", position, offset, labelOffset, scaleMinSpace, ...){
 
   opts <- list(...)
 
@@ -418,7 +418,7 @@ yaxis_ist <- function(p, ..., showLabel = TRUE, showGrid = TRUE, suffix = "",
 #'         chartPadding = 0)
 #'
 #' @export
-resp_ist <- function(p, ..., query, width, height, low, high, chartPadding){
+resp_ist <- function(p, query, width, height, low, high, chartPadding, ...){
 
   if(missing(query)) stop("missing query")
 
