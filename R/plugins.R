@@ -7,8 +7,8 @@
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     label_ist()
 #'
 #' @export
@@ -30,17 +30,17 @@ label_ist <- function(p, position = "middle"){
 #' Add threshold
 #'
 #' @param p a chartist object.
-#' @param threshold threshold, defaults to \code{mean} of first series.
+#' @param threshold threshold, defaults to \code{mean} of first series passed with \code{\link{add_ist}}.
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     thresh_ist()
 #'
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     thresh_ist(220)
 #'
 #' @export
@@ -71,13 +71,13 @@ thresh_ist <- function(p, threshold){
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist(values = "hp", name = "Your Tooltip") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(values = hp, name = "Your Tooltip") %>%
 #'     hover_ist()
 #'
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist(values = "hp", name = "Your <span style='color:blue;'>Tooltip</span>") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(values = hp, name = "Your <span style='color:blue;'>Tooltip</span>") %>%
 #'     hover_ist()
 #'
 #' @export
@@ -109,8 +109,8 @@ hover_ist <- function(p, prefix = "", suffix = "") {
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist(values = "hp") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(values = hp) %>%
 #'     xtitle_ist(title = "HP", offsety = 30)
 #'
 #' @export
@@ -150,8 +150,8 @@ xtitle_ist <- function(p, title = "", textAnchor = "middle", flipTitle = FALSE,
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("disp") %>%
-#'     add_ist(values = "hp") %>%
+#'     chart_ist(disp) %>%
+#'     add_ist(values = hp) %>%
 #'     ytitle_ist(title = "disp", offsetx = 30)
 #'
 #' @export

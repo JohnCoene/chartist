@@ -46,17 +46,17 @@ Pass options to \code{bar} type.
 mtcars$models <- rownames(mtcars)
 
 mtcars[1:10,] \%>\%
-    chart_ist(x = "models", type = "bar") \%>\%
-    add_ist("cyl") \%>\%
-    add_ist("carb") \%>\%
-    add_ist("gear") \%>\%
+    chart_ist(x = models, type = "bar") \%>\%
+    add_ist(cyl) \%>\%
+    add_ist(carb) \%>\%
+    add_ist(gear) \%>\%
     baropt_ist(stackBars = TRUE)
 
 mtcars[1:10,] \%>\%
-    chart_ist(x = "models", type = "bar") \%>\%
-    add_ist("cyl") \%>\%
-    add_ist("carb") \%>\%
-    add_ist("gear") \%>\%
+    chart_ist(x = models, type = "bar") \%>\%
+    add_ist(cyl) \%>\%
+    add_ist(carb) \%>\%
+    add_ist(gear) \%>\%
     baropt_ist(seriesBarDistance = 10, centerBars = TRUE)
 
 }

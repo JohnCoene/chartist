@@ -50,22 +50,22 @@ mtcars$models <- rownames(mtcars)
 
 mtcars[1:5,] \%>\%
     chart_ist(type = "pie") \%>\%
-    add_ist("disp") \%>\%
+    add_ist(disp) \%>\%
     pieopt_ist(startAngle = 270,
         donut = TRUE,
         donutWidth = 50,
         showLabel = FALSE)
 
 mtcars[1:5,] \%>\%
-    chart_ist(x = "models", type = "pie") \%>\%
-    add_ist("disp") \%>\%
+    chart_ist(x = models, type = "pie") \%>\%
+    add_ist(disp) \%>\%
     pieopt_ist(labelDirection = "explode",
         labelOffset = 100,
         chartPadding = 50)
 
 mtcars[1:5,] \%>\%
     chart_ist(type = "pie") \%>\%
-    add_ist("disp") \%>\%
+    add_ist(disp) \%>\%
     pieopt_ist(percent = TRUE)
 
 }

@@ -7,6 +7,8 @@
 loop_ist(p, ms = 5000)
 }
 \arguments{
+\item{p}{a chartist object.}
+
 \item{ms}{Milliseconds for loop.}
 }
 \description{
@@ -14,8 +16,8 @@ Loop animation
 }
 \examples{
 mtcars \%>\%
-    chart_ist("qsec") \%>\%
-    add_ist("hp") \%>\%
+    chart_ist(qsec) \%>\%
+    add_ist(hp) \%>\%
     lanim_ist()
 
 }

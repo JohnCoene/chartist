@@ -4,7 +4,7 @@
 \alias{chart_ist}
 \title{Initiate a chartist visualisation}
 \usage{
-chart_ist(data, x, type = "line", width = "100\%", height = NULL,
+chart_ist(data, x, type = "line", width = "100\%", height = "100\%",
   elementId = NULL)
 }
 \arguments{
@@ -25,8 +25,8 @@ Transform data into a chartist visualisation
 }
 \examples{
 mtcars \%>\%
-    chart_ist(x = "cyl") \%>\%
-    add_ist("hp")
+    chart_ist(cyl) \%>\%
+    add_ist(hp)
 
 }
 

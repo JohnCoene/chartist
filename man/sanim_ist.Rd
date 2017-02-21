@@ -14,9 +14,9 @@ Out of the box animation for scatter plot.
 }
 \examples{
 mtcars \%>\%
-    chart_ist("wt") \%>\%
-    add_ist("disp") \%>\%
-    add_ist("hp") \%>\%
+    chart_ist(wt) \%>\%
+    add_ist(disp) \%>\%
+    add_ist(hp) \%>\%
     scatter_ist() \%>\%
     sanim_ist()
 

@@ -30,9 +30,9 @@ Animate chart
 }
 \examples{
 mtcars \%>\%
-    chart_ist("wt") \%>\%
-    add_ist("disp") \%>\%
-    add_ist("hp") \%>\%
+    chart_ist(wt) \%>\%
+    add_ist(disp) \%>\%
+    add_ist(hp) \%>\%
     anim_ist(type = c("line", "point"),
         anim = "opacity",
         begin = 0,

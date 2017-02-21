@@ -8,7 +8,7 @@
 #' @examples
 #' mtcars[1:5,] %>%
 #'     chart_ist(type = "pie") %>%
-#'     add_ist("disp") %>%
+#'     add_ist(disp) %>%
 #'     gauge_ist()
 #'
 #' @export
@@ -32,9 +32,10 @@ gauge_ist <- function(p, ...){
 #' @param ... additional parameters to pass to \code{\link{opt_ist}}.
 #'
 #' @examples
+#' mtcars$models <- rownames(mtcars)
 #' mtcars[1:20,] %>%
-#'     chart_ist(x = rownames(.)) %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = models) %>%
+#'     add_ist(disp) %>%
 #'     scatter_ist()
 #'
 #' @export
@@ -57,16 +58,16 @@ scatter_ist <- function(p, ...){
 #' @examples
 #' # default names
 #' mtcars[1:20,] %>%
-#'     chart_ist(x = rownames(.)) %>%
-#'     add_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(x = qsec) %>%
+#'     add_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     name_ist()
 #'
 #' #assigned names
 #' mtcars[1:20,] %>%
-#'     chart_ist(x = rownames(.)) %>%
-#'     add_ist("disp", name = "SERIE1") %>%
-#'     add_ist("hp", name = "hp") %>%
+#'     chart_ist(x = qsec) %>%
+#'     add_ist(disp, name = "SERIE1") %>%
+#'     add_ist(hp, name = "hp") %>%
 #'     name_ist()
 #'
 #' @export
@@ -87,8 +88,8 @@ name_ist <- function(p) {
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("qsec", type = "bar") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(qsec, type = "bar") %>%
+#'     add_ist(hp) %>%
 #'     peak_ist()
 #'
 #' @export

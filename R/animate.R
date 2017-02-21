@@ -12,9 +12,9 @@
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("wt") %>%
-#'     add_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(wt) %>%
+#'     add_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     anim_ist(type = c("line", "point"),
 #'         anim = "opacity",
 #'         begin = 0,
@@ -58,9 +58,9 @@ anim_ist <- function(p, type, anim, begin, dur, from, to, easing, ...){
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("wt") %>%
-#'     add_ist("disp", name = "disp") %>%
-#'     add_ist("hp", name = "hp") %>%
+#'     chart_ist(wt) %>%
+#'     add_ist(disp, name = "disp") %>%
+#'     add_ist(hp, name = "hp") %>%
 #'     opt_ist(showPoint = FALSE) %>%
 #'     lineopt_ist(name = "hp", showArea = TRUE) %>%
 #'     lanim_ist()
@@ -88,9 +88,9 @@ lanim_ist <- function(p, type = c("line", "area")){
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("wt") %>%
-#'     add_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(wt) %>%
+#'     add_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     scatter_ist() %>%
 #'     sanim_ist()
 #'
@@ -124,8 +124,8 @@ sanim_ist <- function(p){
 #'
 #' @examples
 #' mtcars[1:5,] %>%
-#'     chart_ist(x = "hp", type = "pie") %>%
-#'     add_ist("disp") %>%
+#'     chart_ist(x = hp, type = "pie") %>%
+#'     add_ist(disp) %>%
 #'     pieopt_ist(donut = TRUE, showLabel = TRUE) %>%
 #'     danim_ist()
 #'
@@ -197,9 +197,9 @@ danim_ist <- function(p){
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("wt") %>%
-#'     add_ist("disp") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(wt) %>%
+#'     add_ist(disp) %>%
+#'     add_ist(hp) %>%
 #'     ganim_ist()
 #'
 #' @export
@@ -280,12 +280,12 @@ ganim_ist <- function(p){
 
 #' Pass function to on "draw"
 #'
-#' Pass Javascript function to \code{chart.on("draw", your_fun)}.d
+#' Pass Javascript function to \code{chart.on("draw", your_fun)}.
 #'
 #' @param p a chartist object.
 #' @param fun function, wrapped in \code{\link[htmlwidgets]{JS}}.
 #'
-#' @export
+#' @keywords internal
 draw_ist <- function(p, fun){
 
   opts <- list(FUN = fun)
@@ -298,12 +298,13 @@ draw_ist <- function(p, fun){
 
 #' Loop animation
 #'
+#' @param p a chartist object.
 #' @param ms Milliseconds for loop.
 #'
 #' @examples
 #' mtcars %>%
-#'     chart_ist("qsec") %>%
-#'     add_ist("hp") %>%
+#'     chart_ist(qsec) %>%
+#'     add_ist(hp) %>%
 #'     lanim_ist()
 #'
 #' @export
