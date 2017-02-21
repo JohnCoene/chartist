@@ -213,6 +213,7 @@ mtcars %>%
     
 # make your own
 # line and point opacity from 0 to 1 in 2000 ms
+# loop over animation with loop_ist
 mtcars %>%
     chart_ist("wt") %>%
     add_ist("disp") %>%
@@ -222,7 +223,8 @@ mtcars %>%
         begin = 0,
         from = 0,
         to = 1,
-        dur = 2000)
+        dur = 2000) %>%
+    loop_ist()
 ```
 
 --------------------------------
