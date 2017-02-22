@@ -27,7 +27,7 @@ chart_ist <- function(data, x, type = "line", width = "100%", height = NULL,
 
   if(missing(data)) stop("must pass data")
   if(!tolower(type) %in% c("bar", "line", "pie")) stop("type takes: line, bar or pie")
-  
+
   if(!missing(x)){
     labs <- eval(substitute(x), data)
     if(!class(labs) %in% c("factor", "character")){ # order
@@ -59,8 +59,7 @@ chart_ist <- function(data, x, type = "line", width = "100%", height = NULL,
 }
 
 chartist_html <- function(id, style, class, ...) {
-  htmltools::tags$div(class = paste(class, "ct-chart"),
-           id = id, style=style)
+  htmltools::tags$div(class = class, id = id, style = style)
 }
 
 #' Shiny bindings for chartist

@@ -12,9 +12,6 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
-        var d = document.getElementById(el.id);
-        d.className += x.ratio;
-
         if(x.hasOwnProperty('revTresh')){
           var d = document.getElementById(el.id).style.cssText = x.revTresh;
         }

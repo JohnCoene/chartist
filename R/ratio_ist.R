@@ -28,7 +28,7 @@
 #'
 #' @examples
 #' mtcars$models <- row.names(mtcars)
-#' 
+#'
 #' mtcars %>%
 #'     chart_ist(x = models) %>%
 #'     add_ist(disp) %>%
@@ -46,7 +46,16 @@ ratio_ist <- function(p, ratio) {
 
   if(nrow(css_class) == 0) stop("cannot find ratio")
 
-  p$x$ratio <- paste(p$x$ratio, css_class$class)
+  # override width and height
+  p$width <- "100%"
+  p$height <- "100%"
+
+  fun <- paste0("function(el){",
+                "var d = document.getElementById(el.id);",
+                "d.className += ' ", css_class$class, "';}")
+
+  p <-  p %>%
+    htmlwidgets::onRender(fun)
 
   p
 }
