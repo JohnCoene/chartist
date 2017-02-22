@@ -1,13 +1,24 @@
 #' Style your chart
 #'
 #' @param p a chartist object.
-#' @param ... stuff
+#' @param type chart element type to animate (i.e.: line, or grid).
+#' @param css css to wrap in \code{\link[htmltools]{css}}
 #'
-#' @keywords internal
-style_ist <- function(p, ...){
+#' @examples
+#' # missing style defaults to chart type
+#' mtcars %>%
+#'     chart_ist(qsec, "bar") %>%
+#'     add_ist(mpg) %>%
+#'     style_ist(css = htmltools::css(stroke = "blue"))
+#'
+#' @export
+style_ist <- function(p, type, css = htmltools::css()){
 
-  opts <- list(...)
+  if(missing(type)) type <- p$x$type
 
+  type <- type_it(type, "context")
+
+  p <- style_fun(p, type, css)
 
   p
 

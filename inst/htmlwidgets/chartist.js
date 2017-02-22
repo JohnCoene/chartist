@@ -52,12 +52,16 @@ HTMLWidgets.widget({
 
         if (x.hasOwnProperty('anim')){
 
-        chart.on('draw', x.anim.FUN);
+          chart.on('draw', x.anim.FUN);
 
-        if(x.hasOwnProperty('loop')){
-          chart.on('created', function() {setTimeout(chart.update.bind(chart), x.loop.ms);});
+          if(x.hasOwnProperty('loop')){
+            chart.on('created', function() {setTimeout(chart.update.bind(chart), x.loop.ms);});
+          }
+
         }
 
+        if(x.hasOwnProperty('style')){
+          chart.on('draw', x.style.FUN);
         }
 
       },

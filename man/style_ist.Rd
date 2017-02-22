@@ -4,15 +4,24 @@
 \alias{style_ist}
 \title{Style your chart}
 \usage{
-style_ist(p, ...)
+style_ist(p, type, css = htmltools::css())
 }
 \arguments{
 \item{p}{a chartist object.}
 
-\item{...}{stuff}
+\item{type}{chart element type to animate (i.e.: line, or grid).}
+
+\item{css}{css to wrap in \code{\link[htmltools]{css}}}
 }
 \description{
 Style your chart
 }
-\keyword{internal}
+\examples{
+# missing style defaults to chart type
+mtcars \%>\%
+    chart_ist(qsec, "bar") \%>\%
+    add_ist(mpg) \%>\%
+    style_ist(css = htmltools::css(stroke = "blue"))
+
+}
 

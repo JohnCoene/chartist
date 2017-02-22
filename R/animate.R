@@ -44,7 +44,7 @@ anim_ist <- function(p, type, anim, begin, dur, from, to, easing, ...){
   d <- paste0(unlist(d), collapse = ", ")
 
   # multiple types
-  type <- type_it(type)
+  type <- type_it(type, "data")
 
   p <- anim_fun(p, type, anim, d)
 

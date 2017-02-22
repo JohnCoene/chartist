@@ -20,17 +20,13 @@ anim_fun <- function(p, type, target, d){
 
   if(length(p$x$anim$FUN)){
 
-    foo <- substr(p$x$anim$FUN, 0, nchar(p$x$anim$FUN)-1)
+    foo <- substr(p$x$anim$FUN, 0, nchar(p$x$anim$FUN) - 1)
 
     d <- paste0(foo, "
       if(", type, "){
         data.element.animate({", target, ":{", d, "}});
       }
     }")
-
-    fun <- htmlwidgets::JS(d)
-
-    opts <- list(FUN = fun)
 
   } else {
     d <- paste0("
@@ -40,11 +36,11 @@ anim_fun <- function(p, type, target, d){
       }
     }")
 
-    fun <- htmlwidgets::JS(d)
-
-    opts <- list(FUN = fun)
-
   }
+
+  fun <- htmlwidgets::JS(d)
+
+  opts <- list(FUN = fun)
 
   p$x$anim <- opts
 
@@ -52,13 +48,47 @@ anim_fun <- function(p, type, target, d){
 
 }
 
-type_it <- function(type){
+type_it <- function(type, f){
 
   if(length(type) > 1){
-    type <- paste0(type, collapse = "' || data.type === '")
+    col <- paste0("' || ", f, ".type === '")
+    type <- paste0(type, collapse = col)
   }
 
-  type <- paste0("data.type === '", type, "'")
+  type <- paste0(f, ".type === '", type, "'")
 
   return(type)
+}
+
+# build style
+style_fun <- function(p, type, css){
+
+  if(length(p$x$style$FUN)){
+
+    foo <- substr(p$x$style$FUN, 0, nchar(p$x$style$FUN) - 1)
+
+    d <- paste0(foo, "
+      if(", type, "){
+        context.element.attr({style: '", css, "'});
+      }
+    }")
+
+  } else {
+    d <- paste0("
+    function(context){
+      if(", type, "){
+        context.element.attr({style: '", css, "'});
+      }
+    }")
+
+  }
+
+  fun <- htmlwidgets::JS(d)
+
+  opts <- list(FUN = fun)
+
+  p$x$style <- opts
+
+  p
+
 }
