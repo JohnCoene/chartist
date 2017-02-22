@@ -310,7 +310,7 @@ draw_ist <- function(p, fun){
 #'     chart_ist(qsec) %>%
 #'     add_ist(hp) %>%
 #'     lanim_ist() %>%
-#'     loop(6000)
+#'     loop_ist(6000)
 #'
 #' @export
 loop_ist <- function(p, ms = 5000){

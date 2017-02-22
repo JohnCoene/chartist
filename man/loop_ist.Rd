@@ -19,7 +19,7 @@ mtcars \%>\%
     chart_ist(qsec) \%>\%
     add_ist(hp) \%>\%
     lanim_ist() \%>\%
-    loop(6000)
+    loop_ist(6000)
 
 }
 
