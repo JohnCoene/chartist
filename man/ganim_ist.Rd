@@ -10,7 +10,7 @@ ganim_ist(p)
 \item{p}{a chartist object.}
 }
 \description{
-Animate grid
+Out of the box animation for the chart grid.
 }
 \examples{
 mtcars \%>\%

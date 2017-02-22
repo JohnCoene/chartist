@@ -11,7 +11,7 @@ pieopt_ist(p, percent = FALSE, donut = FALSE, showLabel = FALSE,
 \arguments{
 \item{p}{a chartist object.}
 
-\item{percent}{add percent sign}
+\item{percent}{convert to percent.}
 
 \item{donut}{set to \code{TRUE} for donut chart, defaults to \code{FALSE}.}
 
@@ -43,7 +43,7 @@ or \code{implode}.}
 \item{...}{additional options.}
 }
 \description{
-Pie and donut options
+Pass options to \code{pie} type.
 }
 \examples{
 mtcars$models <- rownames(mtcars)

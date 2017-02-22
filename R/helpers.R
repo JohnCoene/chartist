@@ -53,6 +53,8 @@ scatter_ist <- function(p, ...){
 
 #' Get assigned name
 #'
+#' Get the generated series name.
+#'
 #' @param p a chartist object
 #'
 #' @examples

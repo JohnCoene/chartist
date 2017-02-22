@@ -1,13 +1,13 @@
 #' Initiate a chartist visualisation
 #'
-#' Transform data into a chartist visualisation
+#' Initiate a chartist chart.
 #'
 #' @param data \code{data.frame} containing data to plot.
 #' @param type type of charts, defaults to \code{line}, may also be \code{bar} or \code{pie}.
 #' @param x Must be passed for \code{line} and \code{bar} (\code{type}).
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended, defaults to \code{100\%}.
+#'   string and have \code{'px'} appended, defaults to \code{NULL}.
 #' @param elementId Use specific element id.
 #'
 #' @examples

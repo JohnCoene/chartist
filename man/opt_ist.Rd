@@ -49,4 +49,7 @@ mtcars[1:10,] \%>\%
         showPoint = FALSE)
 
 }
+\seealso{
+\code{\link{baropt_ist}}, \code{\link{pieopt_ist}}, \code{\link{lineopt_ist}}
+}
 

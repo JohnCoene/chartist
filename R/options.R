@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' mtcars$models <- row.names(mtcars)
-#' 
+#'
 #' mtcars[1:10,] %>%
 #'     chart_ist(x = models) %>%
 #'     add_ist(wt) %>%
@@ -32,6 +32,8 @@
 #'         showArea = TRUE,
 #'         showLine = FALSE,
 #'         showPoint = FALSE)
+#'
+#' @seealso \code{\link{baropt_ist}}, \code{\link{pieopt_ist}}, \code{\link{lineopt_ist}}
 #'
 #' @export
 opt_ist <- function(p, name, width, height, low, high, chartPadding, ...){
@@ -101,6 +103,12 @@ opt_ist <- function(p, name, width, height, low, high, chartPadding, ...){
 #'    lineopt_ist(name = "disp", lineSmoothing = "none") %>%
 #'    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 #'
+#' mtcars %>%
+#'    chart_ist(qsec) %>%
+#'    add_ist(mpg) %>%
+#'    lineopt_ist(lineSmoothing = htmlwidgets::JS("
+#'        Chartist.Interpolation.cardinal({tension: 0.2})"))
+#'
 #' @export
 lineopt_ist <- function(p, name, fillHoles = FALSE, showPoint = TRUE,
                         showArea = FALSE, showLine = TRUE, areaBase = 0,
@@ -121,14 +129,16 @@ lineopt_ist <- function(p, name, fillHoles = FALSE, showPoint = TRUE,
   opts$showPoint <- if(!missing(showPoint)) showPoint
   opts$showLine <- if(!missing(showLine)) showLine
 
-  if(!missing(lineSmoothing) && is.numeric(lineSmoothing) || is.integer(lineSmoothing)) {
+  if(is.numeric(lineSmoothing) || is.integer(lineSmoothing)) {
     opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.simple({divisor: ', lineSmoothing,'})')
-  } else if (!missing(lineSmoothing) && lineSmoothing == "step"){
+  } else if (lineSmoothing == "step"){
     opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.step()')
-  } else if (!missing(lineSmoothing) && lineSmoothing == "none"){
+  } else if (lineSmoothing == "none"){
     opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.none()')
-  } else if (!missing(lineSmoothing) && lineSmoothing == "simple"){
+  } else if (lineSmoothing == "simple"){
     opts$lineSmooth <- htmlwidgets::JS('Chartist.Interpolation.simple()')
+  } else {
+    lineSmoothing
   }
 
   if(fillHoles == TRUE) {
@@ -221,9 +231,11 @@ baropt_ist <- function(p, fullWidth = TRUE, centerBars = FALSE,
 
 #' Pie and donut options
 #'
+#' Pass options to \code{pie} type.
+#'
 #' @param p a chartist object.
 #' @param ... additional options.
-#' @param percent add percent sign
+#' @param percent convert to percent.
 #' @param startAngle start angle of the pie chart in degrees.
 #' @param total By specifying a total value, the sum of the values in the series
 #' must be this total.
@@ -316,7 +328,7 @@ pieopt_ist <- function(p, percent = FALSE, donut = FALSE, showLabel = FALSE,
 #'
 #' @examples
 #' mtcars$models <- row.names(mtcars)
-#' 
+#'
 #' mtcars[1:20,] %>%
 #'     chart_ist(x = models, type = "bar") %>%
 #'     add_ist(disp) %>%
@@ -364,7 +376,7 @@ xaxis_ist <- function(p, showLabel = TRUE, showGrid = TRUE, suffix = "",
 #'
 #' @examples
 #' mtcars$models <- row.names(mtcars)
-#' 
+#'
 #' mtcars[1:5,] %>%
 #'     chart_ist(x = models, type = "bar") %>%
 #'     add_ist(disp) %>%
@@ -408,7 +420,7 @@ yaxis_ist <- function(p, showLabel = TRUE, showGrid = TRUE, suffix = "",
 #'
 #' @examples
 #' mtcars$models <- row.names(mtcars)
-#' 
+#'
 #' mtcars %>%
 #'     chart_ist(models) %>%
 #'     add_ist(qsec) %>%

@@ -13,13 +13,13 @@ add_ist(p, values, name, ...)
 
 \item{name}{name the serie, see details (optional).}
 
-\item{...}{Additional parameter to pass to line.}
+\item{...}{Additional parameter.}
 }
 \description{
 Add series(s) to chart
 }
 \details{
-naming the serie (\code{name}) is useful if you want to apply
+Naming the serie (\code{name}) is useful if you want to apply
 different options (\code{\link{opt_ist}}) for each serie later on. If no
 name is specified then the assigns one; \code{type} + \code{i} where
 \code{i} is the serie index and starts from \code{1}. Names can be retrieved

@@ -10,7 +10,7 @@ name_ist(p)
 \item{p}{a chartist object}
 }
 \description{
-Get assigned name
+Get the generated series name.
 }
 \examples{
 # default names

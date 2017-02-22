@@ -16,12 +16,12 @@ chart_ist(data, x, type = "line", width = NULL, height = NULL,
 
 \item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended, defaults to \code{100\%}.}
+string and have \code{'px'} appended, defaults to \code{NULL}.}
 
 \item{elementId}{Use specific element id.}
 }
 \description{
-Transform data into a chartist visualisation
+Initiate a chartist chart.
 }
 \examples{
 mtcars \%>\%

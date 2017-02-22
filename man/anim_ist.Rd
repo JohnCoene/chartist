@@ -11,9 +11,9 @@ anim_ist(p, type, anim, begin, dur, from, to, easing, ...)
 
 \item{type}{chart element type to animate (i.e.: line, or grid).}
 
-\item{anim}{anim of animation (i.e.: opacity).}
+\item{anim}{animation (i.e.: opacity).}
 
-\item{begin}{begin index, \code{index}.}
+\item{begin}{begin index.}
 
 \item{dur}{duration of animation in ms.}
 
@@ -26,7 +26,7 @@ anim_ist(p, type, anim, begin, dur, from, to, easing, ...)
 \item{...}{any other param to pass to \code{anim}.}
 }
 \description{
-Animate chart
+Animate chart.
 }
 \examples{
 mtcars \%>\%

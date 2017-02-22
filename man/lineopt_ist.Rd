@@ -70,5 +70,11 @@ mtcars \%>\%
    lineopt_ist(name = "disp", lineSmoothing = "none") \%>\%
    lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 
+mtcars \%>\%
+   chart_ist(qsec) \%>\%
+   add_ist(mpg) \%>\%
+   lineopt_ist(lineSmoothing = htmlwidgets::JS("
+       Chartist.Interpolation.cardinal({tension: 0.2})"))
+
 }
 

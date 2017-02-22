@@ -9,7 +9,7 @@ label_ist(p, position = "middle")
 \arguments{
 \item{p}{a chartist object.}
 
-\item{position}{position of label}
+\item{position}{position of label, defaults to \code{middle}.}
 }
 \description{
 Add data point labels to \code{line} type chart.

@@ -3,7 +3,7 @@
 #' Add data point labels to \code{line} type chart.
 #'
 #' @param p a chartist object.
-#' @param position position of label
+#' @param position position of label, defaults to \code{middle}.
 #'
 #' @examples
 #' mtcars %>%
@@ -73,7 +73,7 @@ thresh_ist <- function(p, threshold){
 #' mtcars %>%
 #'     chart_ist(disp) %>%
 #'     add_ist(values = hp, name = "Your Tooltip") %>%
-#'     hover_ist()
+#'     hover_ist(prefix = "US$")
 #'
 #' mtcars %>%
 #'     chart_ist(disp) %>%

@@ -23,7 +23,7 @@ The tooltip displays series name which is passed in \code{\link{add_ist}}
 mtcars \%>\%
     chart_ist(disp) \%>\%
     add_ist(values = hp, name = "Your Tooltip") \%>\%
-    hover_ist()
+    hover_ist(prefix = "US$")
 
 mtcars \%>\%
     chart_ist(disp) \%>\%

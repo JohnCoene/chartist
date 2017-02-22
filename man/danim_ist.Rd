@@ -10,7 +10,7 @@ danim_ist(p)
 \item{p}{a chartist object.}
 }
 \description{
-Out of the box animation for donut chart
+Out of the box animation for donut chart.
 }
 \examples{
 mtcars[1:5,] \%>\%

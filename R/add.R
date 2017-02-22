@@ -5,9 +5,9 @@
 #' @param p a chartist object.
 #' @param values values to plot on y axis.
 #' @param name name the serie, see details (optional).
-#' @param ... Additional parameter to pass to line.
+#' @param ... Additional parameter.
 #'
-#' @details naming the serie (\code{name}) is useful if you want to apply
+#' @details Naming the serie (\code{name}) is useful if you want to apply
 #' different options (\code{\link{opt_ist}}) for each serie later on. If no
 #' name is specified then the assigns one; \code{type} + \code{i} where
 #' \code{i} is the serie index and starts from \code{1}. Names can be retrieved

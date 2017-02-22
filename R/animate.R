@@ -1,9 +1,11 @@
 #' Animate chart
 #'
+#' Animate chart.
+#'
 #' @param p a chartist object.
 #' @param type chart element type to animate (i.e.: line, or grid).
-#' @param anim anim of animation (i.e.: opacity).
-#' @param begin begin index, \code{index}.
+#' @param anim animation (i.e.: opacity).
+#' @param begin begin index.
 #' @param dur duration of animation in ms.
 #' @param from start of animation.
 #' @param to end of animation.
@@ -118,7 +120,7 @@ sanim_ist <- function(p){
 
 #' Animate donut chart
 #'
-#' Out of the box animation for donut chart
+#' Out of the box animation for donut chart.
 #'
 #' @param p a chartist object.
 #'
@@ -192,6 +194,8 @@ danim_ist <- function(p){
 }
 
 #' Animate grid
+#'
+#' Out of the box animation for the chart grid.
 #'
 #' @param p a chartist object.
 #'
@@ -299,13 +303,14 @@ draw_ist <- function(p, fun){
 #' Loop animation
 #'
 #' @param p a chartist object.
-#' @param ms Milliseconds for loop.
+#' @param ms Milliseconds for loop, defaults to \code{500}.
 #'
 #' @examples
 #' mtcars %>%
 #'     chart_ist(qsec) %>%
 #'     add_ist(hp) %>%
-#'     lanim_ist()
+#'     lanim_ist() %>%
+#'     loop(6000)
 #'
 #' @export
 loop_ist <- function(p, ms = 5000){
