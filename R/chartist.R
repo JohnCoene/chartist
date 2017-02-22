@@ -18,7 +18,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-chart_ist <- function(data, x, type = "line", width = "100%", height = NULL,
+chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
                       elementId = NULL) {
 
   if(missing(x) && tolower(type) %in% c("line", "bar")) {
@@ -53,6 +53,11 @@ chart_ist <- function(data, x, type = "line", width = "100%", height = NULL,
     x,
     width = width,
     height = height,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      browser.fill = TRUE,
+      padding = 0,
+      knitr.figure = FALSE,
+      knitr.defaultWidth = "100%"),
     package = 'chartist',
     elementId = elementId
   )

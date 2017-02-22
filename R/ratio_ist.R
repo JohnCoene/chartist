@@ -37,7 +37,7 @@
 #' @export
 ratio_ist <- function(p, ratio) {
 
-  if(missing(ratio)) stop("missing ratio")
+  if(missing(ratio)) stop("missing ratio", call. = FALSE)
 
   css_class <- ar[ar$ratio == ratio,]
   if(nrow(css_class) == 0){
@@ -45,10 +45,6 @@ ratio_ist <- function(p, ratio) {
   }
 
   if(nrow(css_class) == 0) stop("cannot find ratio")
-
-  # override width and height
-  p$width <- "100%"
-  p$height <- "100%"
 
   fun <- paste0("function(el){",
                 "var d = document.getElementById(el.id);",
