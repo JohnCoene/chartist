@@ -194,11 +194,7 @@ table_ist <- function(p, caption = "", seriesHeader = "", summary = ""){
   f <- paste0("Chartist.plugins.ctAccessibility({
       caption: '", caption, "',
       seriesHeader: '", seriesHeader, "',
-      summary: '", summary, "',
-      visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; ",
-      "font-size: 11px; overflow-x: auto; ",
-      "background-color: rgba(0, 0, 0, 0.1); padding: 10px'
-    })")
+      summary: '", summary, "'})")
 
   opts <- htmlwidgets::JS(f)
 
