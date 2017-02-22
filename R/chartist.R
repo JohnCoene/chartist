@@ -57,7 +57,8 @@ chart_ist <- function(data, x, type = "line", width = NULL, height = NULL,
       browser.fill = TRUE,
       padding = 0,
       knitr.figure = FALSE,
-      knitr.defaultWidth = "100%"),
+      knitr.defaultWidth = "100%",
+      knitr.defaultHeight = 400),
     package = 'chartist',
     elementId = elementId
   )
