@@ -12,7 +12,7 @@ R htmlwidget for [chartist.js](https://gionkunz.github.io/chartist-js).
 ```R
 devtools::install_github("JohnCoene/chartist")
 ```
-
+hsl(' + Math.floor(Chartist.getMultiValue(context.value) / max * 100) + ', 50%, 50%);'
 ## Documentation
 
 * [examples](https://JohnCoene.github.io/chartistwidget/)
