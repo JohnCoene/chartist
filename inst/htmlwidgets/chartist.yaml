@@ -11,6 +11,6 @@ dependencies:
      - plugins/chartist-plugin-accessibility.min.js
    stylesheet:
      - chartist.min.css
-     - threshold.css
+     - chartist-plugin-tooltip.css
      - tooltip.css
      - style.css
