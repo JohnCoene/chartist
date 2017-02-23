@@ -1,0 +1,16 @@
+dependencies:
+ - name: chartist
+   version: 0.10.0
+   src: htmlwidgets/lib/chartist-0.10.0
+   script:
+     - chartist.min.js
+     - plugins/chartist-plugin-pointlabels.min.js
+     - plugins/chartist-plugin-threshold.min.js
+     - plugins/chartist-plugin-tooltip.min.js
+     - plugins/chartist-plugin-axistitle.min.js
+     - plugins/chartist-plugin-accessibility.min.js
+   stylesheet:
+     - chartist.min.css
+     - threshold.css
+     - tooltip.css
+     - style.css
