@@ -12,5 +12,5 @@ dependencies:
    stylesheet:
      - chartist.min.css
      - chartist-plugin-tooltip.css
-     - tooltip.css
+     - threshold.css
      - style.css
