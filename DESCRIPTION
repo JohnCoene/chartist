@@ -13,3 +13,5 @@ Imports:
     magrittr,
     htmltools
 RoxygenNote: 5.0.1
+Suggests: covr,
+    testthat
