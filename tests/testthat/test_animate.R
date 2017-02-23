@@ -33,15 +33,17 @@ test_that("animate", {
   expect_length(p$x$anim$FUN, 1)
 
   p <- df %>%
-    chart_ist(x) %>%
+    chart_ist(x, "pie") %>%
     add_ist(y) %>%
+    pieopt_ist(donut = TRUE) %>%
     danim_ist()
 
   expect_length(p$x$anim$FUN, 1)
 
   p <- df %>%
-    chart_ist(x) %>%
+    chart_ist(x, "pie") %>%
     add_ist(y) %>%
+    gauge_ist() %>%
     ganim_ist()
 
   expect_length(p$x$anim$FUN, 1)
@@ -53,4 +55,24 @@ test_that("animate", {
     loop_ist()
 
   expect_length(p$x$anim$FUN, 1)
+
+  # multiple
+  p <- df %>%
+    chart_ist(x, "pie") %>%
+    add_ist(y) %>%
+    pieopt_ist(donut = TRUE) %>%
+    anim_ist(type = c("line", "point"),
+             anim = "opacity",
+             begin = 0,
+             from = 0,
+             to = 1,
+             dur = 2000) %>%
+    danim_ist() %>%
+    loop_ist()
+
+  p <- df %>%
+    chart_ist(x, "pie") %>%
+    add_ist(y) %>%
+    gauge_ist() %>%
+    ganim_ist()
 })
