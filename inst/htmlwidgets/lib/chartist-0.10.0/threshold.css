@@ -15,9 +15,9 @@
 }
 
 .ct-series-a .ct-bar.ct-threshold-above {
-  stroke: #f05b4f;
+  stroke: #59922b;
 }
 
 .ct-series-a .ct-bar.ct-threshold-below {
-  stroke: #59922b;
+  stroke: #f05b4f;
 }
