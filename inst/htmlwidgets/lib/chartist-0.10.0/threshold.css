@@ -16,10 +16,8 @@
 
 .ct-bar.ct-threshold-above {
   stroke: #59922b;
-  fill: #59922b;
 }
 
 .ct-bar.ct-threshold-below {
   stroke: #f05b4f;
-  fill: #f05b4f;
 }

@@ -6,7 +6,7 @@
 
 # chartist
 
-![chartist](http://johncoene.github.io/projects/img/chartist.JPG)
+![chartist](http://john-coene.com/img/thumbnails/chartist.png)
 
 R htmlwidget for [chartist.js](https://gionkunz.github.io/chartist-js).
 
@@ -16,9 +16,4 @@ R htmlwidget for [chartist.js](https://gionkunz.github.io/chartist-js).
 devtools::install_github("JohnCoene/chartist")
 ```
 
-* [examples](https://JohnCoene.github.io/chartistwidget/)
-* [docs](https://JohnCoene.github.io/chartistwidget/docs.html)
-
---------------------------------
-
-See [my other projects](http://johncoene.github.io/projects/)
+[DOCS](http://john-coene.com/htmlwidgets/chartist/)
